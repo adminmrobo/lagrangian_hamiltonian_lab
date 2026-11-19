@@ -1,6 +1,6 @@
 # 공간 좌표 해설 제작 지침서 (범용)
 
-> version 1.0 · 2026-11-19 · 글 · 안상선 ((주)M-Robo 대표)
+> version 1.1 · 2026-11-20 (11장 그림 화풍 규칙 추가) · 처음 1.0 · 2026-11-19 · 글 · 안상선 ((주)M-Robo 대표)
 > 적용 스킬: 연구실 비전공자판(ai-lab-explainer-plain) · 분야: 1 인공지능(기본)
 > 첫 적용: 힐베르트 공간 해설(이 저장소) — 적용 계획은 [PLAN_hilbert_space.md](PLAN_hilbert_space.md)
 > 이 지침은 유클리드 공간, 힐베르트 공간, 벡터 공간, 임베딩 공간, 특성 공간처럼 **"데이터를 공간 위의 점·화살표로 보는" 모든 콘텐츠**에 다시 쓴다.
@@ -147,6 +147,13 @@
 - 칸 간격 88px(모바일 64), 줄 간격 1.8, 수식·왜 상자는 860px 아래에서 한 줄로 쌓기.
 - 표지 1600×900, 장면 1200×800 WebP(한 편 600KB 이하), 모든 페이지 og:image.
 - 첫 화면 배경 이미지 프롬프트를 페이지마다 함께 낸다.
+
+### 11-1. 표지·장면 그림 화풍 (필수, 2026-11-20 추가)
+- **화풍은 16비트 RPG 픽셀풍**: 프롬프트 첫머리에 "Match the art style, proportions and colors of the attached reference images exactly (if there are no reference images: 16-bit RPG style pixel art, bold dark outline, 2-3 tone shading, small highlights)"를 그대로 쓴다. "anime style" 같은 다른 화풍 낱말을 쓰지 않는다.
+- 참고 이미지는 fruitfly-lab-expressions 캐릭터 그림만 첨부한다. 다른 화풍의 기존 그림을 참고로 올리지 않는다.
+- 그림 안에 글자·숫자·기호를 넣지 않는다(말풍선은 비워 두고 HTML로 얹는다).
+- 얼굴·손은 안전 영역(좌우 12%, 위 10%, 아래 18%) 안, 왼쪽 아래 모서리는 비운다.
+- 캐릭터는 정해진 영어 묘사 줄(시아·모아·박사·하루·초파리·주판봇)을 그대로 쓴다. 본보기: COVER_PROMPTS_optimization_first_step.md, lagrangian_hamiltonian_lab/docs/IMAGE_PROMPTS.md(v2).
 
 ## 12. 검증
 - 모든 "숫자로 한 번 해 보기" 검산.
