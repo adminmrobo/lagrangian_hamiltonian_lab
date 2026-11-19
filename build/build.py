@@ -70,7 +70,7 @@ PARTS = [
              "저축률·투자 판단을 그림자 가격으로 설명할 수 있습니다."),
       intro=[("doctor","e08","경제학도 같은 두 지도를 쓴다. 시점이 몇 개냐가 갈림길이다."),("sia","e01","한 장면이면 제 팀이죠?"),("moa","e09","끝없는 시간이면 제 팀이고요.")]),
  dict(key="06", fn="06_quantum.html", n="⑥편 · 방 19~21 (심화)", title="양자의 해밀토니안 — 연산자에서 최적화까지", rooms=ROOMS_F,
-      card="연산자가 된 해밀토니안, 변분 원리, 양자 어닐링. 건너뛰어도 됩니다.", face=("haru","e09"),
+      card="연산자가 된 해밀토니안, 변분 원리, 양자 어닐링. 심화 편이라 교양 수업에서는 건너뛰어도 됩니다.", face=("haru","e09"),
       lead="해밀토니안이 가장 깊이 쓰이는 곳입니다. 심화 편이라 건너뛰어도 대결을 따라올 수 있습니다.",
       three=("양자 세계에서 해밀토니안이 \"정해진 에너지 계단\"을 만들고, 최적화 문제를 푸는 데 쓰이는 모습을 봅니다.",
              "양자 컴퓨터의 최적화(VQE·양자 어닐링)가 손실 줄이기와 같은 모양입니다.",
@@ -98,7 +98,8 @@ ABBR = [("라그랑지안 L", "움직임 에너지 − 높이 에너지(T − V)
         ("르장드르 변환", "속도 축을 운동량 축으로 바꿔 그리는 식(H = p·v − L)"),
         ("공동상태변수 μ·q", "시간 위의 그림자 가격"),
         ("SVM·RLHF·HMC", "서포트 벡터 머신 · 사람 피드백 강화학습 · 해밀토니안 몬테카를로"),
-        ("HNN·LNN", "해밀토니안 신경망 · 라그랑지안 신경망")]
+        ("HNN·LNN", "해밀토니안 신경망 · 라그랑지안 신경망"),
+        ("KL", "두 확률이 다른 정도. 거리처럼 쓰지만 방향이 있어 대칭은 아님")]
 
 def head(title, desc, og, path):
     return f"""<!DOCTYPE html>
@@ -213,13 +214,19 @@ def room(r):
 """
 
 # ------------------------------------------------------------- 지식 색인
+EN = {"r01": "Kinetic and potential energy", "r02": "Action (path score)", "r03": "Euler–Lagrange equation and Newton's law", "r04": "Lagrange multipliers",
+      "r05": "Legendre transform: velocity to momentum", "r06": "Phase-space bowl (Hamiltonian)", "r07": "Hamilton's equations", "r08": "Taylor series: every minimum is a spring",
+      "r08b": "Lagrangian vs Hamiltonian side by side", "r09": "SVM dual problem", "r10": "Lagrangian safe reinforcement learning", "r11": "KL-regularized RLHF",
+      "r12": "Momentum gradient descent", "r13": "HMC, Langevin and diffusion sampling", "r14": "Backpropagation as costate (adjoint)", "r15": "Solow golden rule",
+      "r16": "Overlapping generations (Diamond)", "r17": "Ramsey model and current-value Hamiltonian", "r18": "Tobin's q theory of investment", "r19": "Hamiltonian operator and energy levels",
+      "r20": "Variational principle and VQE", "r21": "Quantum annealing and Ising Hamiltonian", "r22": "Hamiltonian and Lagrangian neural networks"}
 TYPE_OF = {9: "Application", 10: "Application", 11: "Application", 12: "Application", 13: "Application", 14: "Application",
            15: "Application", 16: "Application", 17: "Application", 18: "Application", 21: "Application", 22: "Application"}
 def kg_block(pagekey, rooms):
     nodes = []
     for r in rooms:
         t = TYPE_OF.get(r["no"], "Concept") if isinstance(r["no"], int) else "Concept"
-        nodes.append(dict(id="lab:room/" + r["id"], type=t, label=dict(ko=r["title"], en=r["id"]), anchor="#" + r["id"],
+        nodes.append(dict(id="lab:room/" + r["id"], type=t, label=dict(ko=r["title"], en=EN.get(r["id"], r["id"])), anchor="#" + r["id"],
                           desc=r["sub"], page=r["page"][:-5], source="lab:work/lagrangian_hamiltonian_lab"))
     nodes.append(dict(id="lab:concept/lagrangian", type="Concept", label=dict(ko="라그랑지안(T − V)", en="Lagrangian"), anchor="#r02", desc="길 전체에 점수를 매기는 지도", page="01_lagrangian", source="lab:work/lagrangian_hamiltonian_lab"))
     nodes.append(dict(id="lab:concept/hamiltonian", type="Concept", label=dict(ko="해밀토니안(T + V)", en="Hamiltonian"), anchor="#r06", desc="지금 이 순간의 화살표를 보는 지도", page="02_hamiltonian", source="lab:work/lagrangian_hamiltonian_lab"))
@@ -294,7 +301,7 @@ def build_index():
     t = "두 장의 지도 — 라그랑지안 vs 해밀토니안"
     d = "같은 움직임을 빼서(T − V) 그리면 라그랑지안, 더해서(T + V) 그리면 해밀토니안. AI 모델·경제학·양자까지 두 지도의 쓰임을 연구실 해설로 봅니다."
     s = head(t, d, "og_index.jpg", "index.html")
-    s += nav([("#parts", "편 목록"), ("#card", "한 장으로 보기"), ("#map", "큰 그림"), ("#cast", "등장인물"), ("#source", "원자료")])
+    s += nav([("#parts", "편 목록"), ("#class", "수업에 쓰실 때"), ("#card", "한 장으로 보기"), ("#map", "큰 그림"), ("#cast", "등장인물"), ("#source", "원자료")])
     s += cover("index", "책상 위에 펼친 지도 두 장", [("sia","e19"),("doctor","e08"),("moa","e16"),("haru","e01")])
     s += f"""<header class="hero"><div class="wrap"><span class="kicker">좌표축 위의 그릇 · 특집</span>
 <h1>두 장의 지도<br><span style="font-size:.55em;color:var(--muted)">라그랑지안 vs 해밀토니안</span></h1>
@@ -304,6 +311,13 @@ def build_index():
 <section id="parts"><div class="wrap"><h2>편 목록</h2>
 <p class="muted">빠른 길: 0편 → 방 1~3 → 방 6~7 → ③·④편(AI) → 대결. 양자 편(⑥)은 심화라 건너뛰어도 됩니다.</p>
 {part_cards()}</div></section>
+<section id="class"><div class="wrap"><h2>수업에 쓰실 때</h2>
+<div class="tbl"><table><thead><tr><th>차시(90분)</th><th>편</th><th>꼭 할 실험</th></tr></thead><tbody>
+<tr><td>1차시</td><td>0편 · ①편 · ②편</td><td>방 3 공 던지기, 방 7 도는 화살표, 방 8-1 두 지도 나란히</td></tr>
+<tr><td>2차시</td><td>③편 · ④편 (AI)</td><td>방 10 안전선 λ, 방 12 모멘텀 세 버튼, 방 13 걸음법</td></tr>
+<tr><td>3차시</td><td>⑤편 · ⑦편 대결</td><td>방 15 황금률, 방 17 케이크, 대결 세 판 + 비교 총정리</td></tr>
+</tbody></table></div>
+<p class="muted">⑥편 양자는 자습·심화용입니다. 시간이 모자라면 빠른 길(0편 → 방 1~3 → 방 6~7 → ③·④편 → 대결)만으로도 결론까지 갑니다. 모든 퀴즈는 페이지 안에서 바로 채점되고 저장하지 않습니다.</p></div></section>
 <section id="card"><div class="wrap"><h2>한 장으로 먼저 보기</h2>
 <p class="muted">같은 용수철이 왼쪽 지도에서는 안장, 오른쪽 지도에서는 그릇이 됩니다. 자세한 설명은 <a href="02_hamiltonian.html#r08b">8-1번 방</a>에 있습니다.</p>
 {compare_fig()}</div></section>
@@ -375,7 +389,8 @@ def duel_section():
 <div class="solve"><h4>심판 판정</h4>
 <p>1판 용수철 궤적 예측: 시아는 점수가 멈추는 길(3번 방), 모아는 해밀턴 화살표(7번 방)로 풀었습니다. 둘 다 위치 = cos t로 같은 답입니다. 무승부.</p>
 <p>2판 황금률(15번 방): \"소비 + 유지비 = 생산\" 울타리 하나에 λ만 붙이면 끝납니다. 시아가 한 줄로 저축률 1/3을 냈습니다. 시아 승.</p>
-<p>3판 1,000걸음 시뮬레이션에서 에너지 지키기(13번 방): 모아는 리프프로그 걸음으로 에너지를 지켰습니다. 시아 팀의 단순 계산은 에너지가 크게 불었습니다. 모아 승.</p></div>
+<p>3판 1,000걸음 시뮬레이션에서 에너지 지키기(13번 방): 모아는 해밀턴 식을 리프프로그로 걸어 에너지를 지켰고, 시아는 같은 걸음 수를 단순 오일러 계산으로 걸어 에너지가 크게 불었습니다. 모아 승.</p>
+<p class="hint">📝 심판 덧붙임 — 3판의 차이는 지도 탓이 아니라 걸음법 탓입니다. 라그랑지안 쪽에도 에너지를 잘 지키는 걸음법(변분 적분법)이 있습니다. 이번 판은 "오일러 vs 리프프로그" 승부였습니다.</p></div>
 {talk([("haru","e10","판정! 1승 1패 1무, 무승부입니다."),("doctor","e16","지도가 틀린 게 아니라 쓰임새가 다르다. 조건이 중심이면 라그랑지안, 시간 흐름이 중심이면 해밀토니안."),("sia","e01","다음엔 문제부터 보고 지도를 고를게요."),("moa","e16","저도요. 둘 다 들고 다녀야겠어요."),("jupanbot","e14","더하기가 무조건 이기는 게 아니었군요…")])}
 </div></section>
 """
@@ -383,7 +398,7 @@ def duel_section():
 COMPARE_ROWS = [("식", "T − V (차이)", "T + V (합)"), ("쓰는 축", "위치·속도", "위치·운동량"), ("보는 방식", "길 전체의 점수(작용)", "지금 이 순간의 화살표"),
  ("식 모양", "2차 미분방정식 n개", "1차 미분방정식 2n개"), ("잘하는 일", "조건 넣기, 좌표 바꾸기, 대칭 찾기", "에너지 지키기, 긴 시뮬레이션, 양자역학"),
  ("머신러닝", "SVM 쌍대, 안전 강화학습의 λ, RLHF 거리 벌점, LNN", "모멘텀, HMC·확산 모델, 역전파의 그림자 가격, HNN"),
- ("경제학", "솔로우 황금률·중첩세대, λ", "램지·투자 q 이론, μ·q"), ("양자", "—", "연산자·변분 원리·양자 어닐링")]
+ ("경제학", "솔로우 황금률·중첩세대, λ", "램지·투자 q 이론, μ·q"), ("양자", "경로적분(파인먼) — 모든 길의 작용을 더한다", "연산자·변분 원리·양자 어닐링")]
 
 def summary_section():
     rows = "".join(f"<tr><td>{E(a)}</td><td>{E(b)}</td><td>{E(c)}</td></tr>" for a, b, c in COMPARE_ROWS)

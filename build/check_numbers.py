@@ -90,3 +90,10 @@ assert Hs == {(1, 1): 2, (1, -1): 0, (-1, 1): -2, (-1, -1): 0}
 # 0편
 assert 2*1 == 2 and 2*2 == 4
 print("all numbers ok")
+# 방 8 e^x 차수별 (x = 1)
+from math import factorial, e as EE
+ex = lambda x, d: sum(x**n/factorial(n) for n in range(d+1))
+assert ok(ex(1,1), 2) and ok(ex(1,2), 2.5) and ok(ex(1,3), 2.667, 1e-3) and ok(EE, 2.718, 1e-3)
+# 방 17 인구 증가 0.02 + 닳는 비율 0.08 = 0.1, 수정 황금률 기울기 = 할인율 0.04 + 0.08
+assert ok(0.02+0.08, 0.1) and ok(0.04+0.08, 0.12)
+print("extra ok")

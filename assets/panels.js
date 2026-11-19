@@ -70,7 +70,7 @@ function curve(s,m,f,a,b,col,w,da,ylim){var d='',pen=false;for(var i=0;i<=240;i+
     if(!isFinite(y)||(ylim&&(y<ylim[0]||y>ylim[1]))){pen=false;continue;}d+=(pen?' L':' M')+m.X(x).toFixed(1)+','+m.Y(y).toFixed(1);pen=true;}
   return el('path',{d:d,fill:'none',stroke:C[col]||col,'stroke-width':w||2.5,'stroke-dasharray':da||null},s);}
 function poly(s,m,pts,col,w,da){return el('polyline',{points:pts.map(function(q){return m.X(q[0]).toFixed(1)+','+m.Y(q[1]).toFixed(1);}).join(' '),fill:'none',stroke:C[col]||col,'stroke-width':w||2,'stroke-dasharray':da||null,'stroke-linejoin':'round'},s);}
-function toggles(h,cb){var host=h.parentNode;var bs=host.querySelectorAll('.ctrl button[data-v]');bs.forEach(function(b){b.addEventListener('click',function(){bs.forEach(function(x){x.classList.toggle('on',x===b);});cb(b.getAttribute('data-v'));});});
+function toggles(h,cb){var host=h.parentNode;var bs=host.querySelectorAll('.ctrl button[data-v]');bs.forEach(function(b){b.setAttribute('aria-pressed',b.classList.contains('on')?'true':'false');b.addEventListener('click',function(){bs.forEach(function(x){x.classList.toggle('on',x===b);x.setAttribute('aria-pressed',x===b?'true':'false');});cb(b.getAttribute('data-v'));});});
   var on=host.querySelector('.ctrl button.on');return on?on.getAttribute('data-v'):null;}
 function inputs(h){return h.parentNode.querySelectorAll('.ctrl input');}
 function bar(s,x,y0,w,hgt,col,label,val){var y=hgt>=0?y0-hgt:y0;el('rect',{x:x,y:y,width:w,height:Math.abs(hgt)||0.5,fill:C[col]||col,rx:4},s);
@@ -174,7 +174,7 @@ P.p06=function(h){h.dataset.ksnap='0.25';var W=480,H=440,pt=[1,0],out=readout(h)
 
 /* ===== 7번 방: 도는 화살표 ===== */
 P.p07=function(h){var W=480,H=440,inp=inputs(h)[0],out=readout(h),host=h.parentNode,showG=true;
-  var tb=host.querySelector('[data-toggle=grad]');tb.addEventListener('click',function(){showG=!showG;tb.classList.toggle('on',showG);draw();});
+  var tb=host.querySelector('[data-toggle=grad]');tb.setAttribute('aria-pressed','true');tb.addEventListener('click',function(){showG=!showG;tb.classList.toggle('on',showG);tb.setAttribute('aria-pressed',showG?'true':'false');draw();});
   function draw(){var t=+inp.value,q=Math.cos(t),pp=-Math.sin(t),s=svgOf(h,W,H),p=plane(s,{W:W,H:H,x0:-1.7,x1:1.7,y0:-1.7,y1:1.7,equal:true,step:.5,label:1,xl:'위치 q',yl:'운동량 p'});
     for(var i=-3;i<=3;i++)for(var j=-3;j<=3;j++){var a=i*0.5,b=j*0.5;if(!a&&!b)continue;var L=0.18;el('line',{x1:p.X(a),y1:p.Y(b),x2:p.X(a+b*L),y2:p.Y(b-a*L),stroke:'#f2b88a','stroke-width':2},s);el('circle',{cx:p.X(a+b*L),cy:p.Y(b-a*L),r:2,fill:'#f2b88a'},s);}
     el('circle',{cx:p.X(0),cy:p.Y(0),r:p.sx,fill:'none',stroke:C.teal,'stroke-width':2.5,'stroke-dasharray':'6 4'},s);
@@ -186,15 +186,28 @@ P.p07=function(h){var W=480,H=440,inp=inputs(h)[0],out=readout(h),host=h.parentN
     out.innerHTML='시간 '+fmt(t)+' · 자리 ('+num(q)+', '+num(pp)+') · 오르막 ('+num(q)+', '+num(pp)+') · 가는 쪽 ('+num(pp)+', '+num(-q)+') · 겹침 점수 <b>'+fmt(Math.abs(dotp)<1e-9?0:dotp)+'</b> → 직각 · 에너지 '+fmt(0.5*(q*q+pp*pp))+' 그대로';}
   inp.addEventListener('input',draw);draw();};
 
-/* ===== 8번 방: 테일러 ===== */
-P.p08=function(h){var W=560,H=340,inp=inputs(h)[0],out=readout(h);
-  function draw(){var q=+inp.value,s=svgOf(h,W,H),m=box(s,{L:50,T:20,W:480,H:280},{x0:0,x1:2.5,y0:0,y1:2.2,xt:[0,0.5,1,1.5,2,2.5],yt:[0,0.5,1,1.5,2],xl:'흔들림 q',yl:'높이 에너지'});
-    curve(s,m,function(x){return 1-Math.cos(x);},0,2.5,'orange',3.5);curve(s,m,function(x){return x*x/2;},0,2.5,'teal',2.5,'7 5',[0,2.2]);
-    dash(s,m.X(q),m.Y(0),m.X(q),m.Y(Math.min(2.2,q*q/2)),'#8a96a3');dot(s,m.X(q),m.Y(1-Math.cos(q)),'orange',6);if(q*q/2<=2.2)dot(s,m.X(q),m.Y(q*q/2),'teal',6);
-    ktxt(s,m.X(2.45),m.Y(1-Math.cos(2.45))+18,'진자 1 − cos q',{size:12.5,anchor:'end',fill:C.orange});ktxt(s,m.X(2.0),m.Y(2.0)-8,'그릇 q²/2',{size:12.5,anchor:'end',fill:C.teal});
-    var ex=1-Math.cos(q),ap=q*q/2,er=ex>0?(ap-ex)/ex*100:0;
-    out.innerHTML='q = '+fmt(q)+' · 실제 '+fmt(ex,4)+' · 그릇 근사 '+fmt(ap,4)+' · 차이 <b>'+fmt(er,1)+'%</b>'+(er<3?' → 바닥 근처라 거의 같습니다.':' → 바닥에서 멀어 차이가 커집니다.');}
-  inp.addEventListener('input',draw);draw();};
+/* ===== 8번 방: 테일러 (진자 + 원자료 ② e^x·sin x) ===== */
+function fact(n){var f=1;for(var i=2;i<=n;i++)f*=i;return f;}
+function taylorExp(x,d){var s=0;for(var n=0;n<=d;n++)s+=Math.pow(x,n)/fact(n);return s;}
+function taylorSin(x,d){var s=0;for(var n=0;2*n+1<=d;n++)s+=Math.pow(-1,n)*Math.pow(x,2*n+1)/fact(2*n+1);return s;}
+P.p08=function(h){var W=560,H=360,inp=inputs(h)[0],out=readout(h),mode;
+  function draw(){var q=+inp.value,s=svgOf(h,W,H);
+    if(mode==='pend'){var m=box(s,{L:50,T:20,W:480,H:300},{x0:0,x1:2.5,y0:0,y1:2.2,xt:[0,0.5,1,1.5,2,2.5],yt:[0,0.5,1,1.5,2],xl:'흔들림 q',yl:'높이 에너지'});
+      curve(s,m,function(x){return 1-Math.cos(x);},0,2.5,'orange',3.5);curve(s,m,function(x){return x*x/2;},0,2.5,'teal',2.5,'7 5',[0,2.2]);
+      dash(s,m.X(q),m.Y(0),m.X(q),m.Y(Math.min(2.2,q*q/2)),'#8a96a3');dot(s,m.X(q),m.Y(1-Math.cos(q)),'orange',6);if(q*q/2<=2.2)dot(s,m.X(q),m.Y(q*q/2),'teal',6);
+      ktxt(s,m.X(2.45),m.Y(1-Math.cos(2.45))+18,'진자 1 − cos q',{size:12.5,anchor:'end',fill:C.orange});ktxt(s,m.X(2.0),m.Y(2.0)-8,'그릇 q²/2',{size:12.5,anchor:'end',fill:C.teal});
+      var ex=1-Math.cos(q),ap=q*q/2,er=ex>0?(ap-ex)/ex*100:0;
+      out.innerHTML='q = '+fmt(q)+' · 실제 '+fmt(ex,4)+' · 그릇 근사 '+fmt(ap,4)+' · 차이 <b>'+fmt(er,1)+'%</b>'+(er<3?' → 바닥 근처라 거의 같습니다.':' → 바닥에서 멀어 차이가 커집니다.');return;}
+    var isE=mode==='exp',F=isE?Math.exp:Math.sin,T=isE?taylorExp:taylorSin,DS=isE?[1,2,3]:[1,3,5],cols=['blue','green','orange'];
+    var LB=isE?['1차 1 + x','2차 1 + x + x²/2','3차 1 + x + x²/2 + x³/6']:['1차 x','3차 x − x³/6','5차 x − x³/6 + x⁵/120'];
+    var o=isE?{x0:-2.2,x1:2.6,y0:-0.5,y1:8,xt:[-2,-1,0,1,2],yt:[0,2,4,6,8]}:{x0:-3,x1:3,y0:-2,y1:2,xt:[-3,-2,-1,0,1,2,3],yt:[-2,-1,0,1,2]};
+    o.xl='x';o.yl=isE?'e^x':'sin x';var m=box(s,{L:50,T:20,W:480,H:300},o);
+    DS.forEach(function(d,i){curve(s,m,function(x){return T(x,d);},o.x0,o.x1,cols[i],2.2,'7 5',[o.y0,o.y1]);});
+    curve(s,m,F,o.x0,o.x1,'red',3.5,null,[o.y0,o.y1]);
+    LB.forEach(function(t,i){ktxt(s,86,52+i*18,t,{size:12.5,fill:C[cols[i]]});});ktxt(s,86,52+3*18,isE?'실제 e^x':'실제 sin x',{size:12.5,fill:C.red});
+    var xv=q;dash(s,m.X(xv),m.Y(Math.max(o.y0,0)),m.X(xv),m.Y(Math.min(o.y1,F(xv))),'#8a96a3');dot(s,m.X(xv),m.Y(F(xv)),'red',6);
+    out.innerHTML='x = '+fmt(xv)+' · 실제 <b>'+fmt(F(xv),3)+'</b> · '+DS.map(function(d,i){return d+'차 '+fmt(T(xv,d),3);}).join(' · ')+' → 차수를 올릴수록 실제에 가까워집니다. (원자료 꼬리표의 오타를 바로잡은 식)';}
+  mode=toggles(h,function(v){mode=v;draw();});inp.addEventListener('input',draw);draw();};
 
 /* ===== 8-1번 방: 두 지도 나란히 ===== */
 P.p081=function(h){var W=660,H=340,inp=inputs(h)[0],out=readout(h);
@@ -350,12 +363,12 @@ P.p21=function(h){var W=560,H=325,out=readout(h),sel,ST=[[1,1],[1,-1],[-1,1],[-1
 
 /* ===== 대결 ===== */
 P.duel=function(h){var W=600,H=260,out=readout(h),host=h.parentNode,open={};
-  var R=[['1판 · 용수철 궤적 예측','둘 다 위치 = cos t','무승부'],['2판 · 황금률(울타리 하나)','시아가 λ 한 줄로 저축률 1/3','시아 승'],['3판 · 1,000걸음 에너지 지키기','모아의 리프프로그가 에너지를 지킴','모아 승']];
+  var R=[['1판 · 용수철 궤적 예측','둘 다 위치 = cos t','무승부'],['2판 · 황금률(울타리 하나)','시아가 λ 한 줄로 저축률 1/3','시아 승'],['3판 · 1,000걸음 에너지 지키기','리프프로그(모아) vs 단순 오일러(시아) — 걸음법 승부','모아 승']];
   function draw(){var s=svgOf(h,W,H);R.forEach(function(r,i){var y=30+i*70;el('rect',{x:10,y:y,width:W-20,height:56,rx:12,fill:open[i+1]?'#fff':C.grid,stroke:open[i+1]?C.navy:C.grid,'stroke-width':2},s);
       ktxt(s,28,y+24,r[0],{size:14.5,weight:'bold'});ktxt(s,28,y+45,open[i+1]?r[1]:'아직 열지 않았습니다',{size:13,fill:C.muted});
       if(open[i+1])ktxt(s,W-30,y+35,r[2],{size:17,anchor:'end',weight:'bold',fill:r[2]==='시아 승'?C.teal:(r[2]==='모아 승'?C.orange:C.navy)});});
     var n=Object.keys(open).length;out.innerHTML=n<3?'연 판 '+n+'/3':'<b>1승 1패 1무 — 무승부.</b> 지도가 틀린 게 아니라 쓰임새가 다릅니다.';}
-  host.querySelectorAll('[data-round]').forEach(function(b){b.addEventListener('click',function(){open[b.getAttribute('data-round')]=1;b.classList.add('on');draw();});});draw();};
+  host.querySelectorAll('[data-round]').forEach(function(b){b.setAttribute('aria-pressed','false');b.addEventListener('click',function(){open[b.getAttribute('data-round')]=1;b.classList.add('on');b.setAttribute('aria-pressed','true');draw();});});draw();};
 function quiz(q){var ans=+q.getAttribute('data-ans');var fb=q.querySelector('.fb');q.querySelectorAll('button').forEach(function(b,i){b.addEventListener('click',function(){q.querySelectorAll('button').forEach(function(x){x.classList.remove('ok','no');});b.classList.add(i===ans?'ok':'no');fb.innerHTML=i===ans?'⭕ '+q.getAttribute('data-ok'):'❌ '+q.getAttribute('data-no');});});}
 
 /* ===== 지식 색인·꾸러미 ===== */
