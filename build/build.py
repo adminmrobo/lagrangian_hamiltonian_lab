@@ -7,7 +7,7 @@ from content_b import ROOMS_C, ROOMS_D, ML_ATLAS, ML_3D, NN_ATLAS0, NN_ATLAS1, N
 from content_c import ROOMS_E, ROOMS_F, ROOMS_G
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-VER = "v1.0"
+VER = "v1.2"
 DATE = "2026-11-19"
 SITE = "https://adminmrobo.github.io/lagrangian_hamiltonian_lab/"
 REPO = "https://github.com/adminmrobo/lagrangian_hamiltonian_lab"

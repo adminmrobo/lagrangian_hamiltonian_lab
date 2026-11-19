@@ -65,10 +65,20 @@
     ]
   },
   "cover": {
-    "status": "pending",
+    "status": "ok",
     "prompts": "docs/IMAGE_PROMPTS.md",
     "files": [
-      "assets/img/cover_index.webp"
+      "assets/img/cover_index.webp",
+      "assets/img/cover_00.webp",
+      "assets/img/cover_01.webp",
+      "assets/img/cover_02.webp",
+      "assets/img/cover_03.webp",
+      "assets/img/cover_04.webp",
+      "assets/img/cover_05.webp",
+      "assets/img/cover_06.webp",
+      "assets/img/cover_07.webp",
+      "assets/img/duel.webp",
+      "assets/img/outro.webp"
     ]
   }
 }
