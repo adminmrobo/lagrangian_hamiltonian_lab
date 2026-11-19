@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>두 장의 지도 ⑤편 — 경제학의 두 지도 — 한 장면 vs 끝없는 시간</title>
+<meta name="description" content="거시경제학의 성장·저축·투자 모형이 두 지도 중 어느 쪽으로 풀리는지 봅니다.">
+<meta property="og:type" content="article"><meta property="og:title" content="두 장의 지도 ⑤편 — 경제학의 두 지도 — 한 장면 vs 끝없는 시간"><meta property="og:description" content="거시경제학의 성장·저축·투자 모형이 두 지도 중 어느 쪽으로 풀리는지 봅니다.">
+<meta property="og:image" content="https://adminmrobo.github.io/lagrangian_hamiltonian_lab/assets/og/og_05.jpg"><meta property="og:url" content="https://adminmrobo.github.io/lagrangian_hamiltonian_lab/05_economics.html"><meta name="twitter:card" content="summary_large_image">
+<meta name="author" content="안상선">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/lab.css">
+</head>
+<body>
+<div id="prog"></div>
+<nav class="top"><div class="row"><a class="logo" href="index.html">두 장의 <i>지도</i></a><div class="links"><a href="#r15">15번 방</a><a href="#r16">16번 방</a><a href="#r17">17번 방</a><a href="#r18">18번 방</a></div></div></nav>
+<div class="cover"><div class="frame"><svg class="grid" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><path d="M370,120 Q430,450 370,780" fill="none" stroke="#9fd3cf" stroke-width="3"/><path d="M490,120 Q430,450 490,780" fill="none" stroke="#9fd3cf" stroke-width="3"/><path d="M310,120 Q430,450 310,780" fill="none" stroke="#9fd3cf" stroke-width="3"/><path d="M550,120 Q430,450 550,780" fill="none" stroke="#9fd3cf" stroke-width="3"/><path d="M250,120 Q430,450 250,780" fill="none" stroke="#9fd3cf" stroke-width="3"/><path d="M610,120 Q430,450 610,780" fill="none" stroke="#9fd3cf" stroke-width="3"/><path d="M190,120 Q430,450 190,780" fill="none" stroke="#9fd3cf" stroke-width="3"/><path d="M670,120 Q430,450 670,780" fill="none" stroke="#9fd3cf" stroke-width="3"/><circle cx="1170" cy="450" r="70" fill="none" stroke="#f2b88a" stroke-width="3"/><circle cx="1170" cy="450" r="140" fill="none" stroke="#f2b88a" stroke-width="3"/><circle cx="1170" cy="450" r="210" fill="none" stroke="#f2b88a" stroke-width="3"/><circle cx="1170" cy="450" r="280" fill="none" stroke="#f2b88a" stroke-width="3"/><circle cx="1170" cy="450" r="140" fill="none" stroke="#0f8f84" stroke-width="7"/><line x1="800" y1="60" x2="800" y2="840" stroke="#d5dbe2" stroke-width="3" stroke-dasharray="12 10"/><text x="430" y="80" font-size="44" text-anchor="middle" fill="#0f8f84" font-weight="700" font-family="sans-serif">T − V</text><text x="1170" y="80" font-size="44" text-anchor="middle" fill="#e8731a" font-weight="700" font-family="sans-serif">T + V</text></svg>
+<span class="cap">⑤편 · 방 15~18</span><span class="badge">표지 그림 준비 중</span><div class="cast"><img src="assets/chars/doctor_e08.webp" alt="박사" width="96" height="96" loading="lazy"><img src="assets/chars/doctor_e08.webp" alt="박사" width="96" height="96" loading="lazy"><img src="assets/chars/haru_e09.webp" alt="조수 하루" width="96" height="96" loading="lazy"></div></div></div>
+<header class="hero"><div class="wrap"><span class="kicker">⑤편 · 방 15~18</span><h1>경제학의 두 지도 — 한 장면 vs 끝없는 시간</h1><p class="lead">한 장면·두 기간의 선택은 라그랑지안, 끝없이 이어지는 시간의 선택은 해밀토니안. 거시경제학 안에서도 두 지도가 나뉩니다.</p>
+<p class="byline">글 · 안상선 ((주)M-Robo 대표) · <a href="https://adminmrobo.github.io/who_am_i/who_am_i.html">저자 소개</a> · 2026-11-19 · v1.0</p></div></header>
+<section><div class="wrap"><div class="three"><h2>처음 오신 분께 — 이 페이지를 3줄로</h2><ul>
+<li><b>무엇을</b>: 거시경제학의 성장·저축·투자 모형이 두 지도 중 어느 쪽으로 풀리는지 봅니다.</li><li><b>왜 중요한가</b>: λ(한 장면의 그림자 가격)와 μ·q(시간 위의 그림자 가격)가 AI의 그림자 가격과 같은 자리입니다.</li><li><b>업무에서는</b>: 저축률·투자 판단을 그림자 가격으로 설명할 수 있습니다.</li></ul>
+<p>코드·수식을 몰라도 됩니다. 식은 조수 상자 안에만 있습니다.</p>
+<details class="abbr"><summary>원어·약어 풀이 (펼치기)</summary><dl><dt>라그랑지안 L</dt><dd>움직임 에너지 − 높이 에너지(T − V). 최적화에서는 목표 − λ × 조건</dd><dt>해밀토니안 H</dt><dd>움직임 에너지 + 높이 에너지(T + V)</dd><dt>작용 S</dt><dd>길 위의 L을 모두 더한 점수</dd><dt>λ(람다), 라그랑주 승수</dt><dd>조건 하나의 값(그림자 가격)</dd><dt>운동량 p</dt><dd>무게 × 속도</dd><dt>위상 공간</dt><dd>위치·운동량 두 축으로 된 지도</dd><dt>르장드르 변환</dt><dd>속도 축을 운동량 축으로 바꿔 그리는 식(H = p·v − L)</dd><dt>공동상태변수 μ·q</dt><dd>시간 위의 그림자 가격</dd><dt>SVM·RLHF·HMC</dt><dd>서포트 벡터 머신 · 사람 피드백 강화학습 · 해밀토니안 몬테카를로</dd><dt>HNN·LNN</dt><dd>해밀토니안 신경망 · 라그랑지안 신경망</dd></dl></details></div>
+</div></section>
+<section><div class="wrap"><div class="talk"><div class="line"><img src="assets/chars/doctor_e08.webp" alt="박사" width="96" height="96" loading="lazy"><div class="bub"><b style="color:var(--c-doc)">박사</b>경제학도 같은 두 지도를 쓴다. 시점이 몇 개냐가 갈림길이다.</div></div><div class="line"><img src="assets/chars/sia_e01.webp" alt="시아" width="96" height="96" loading="lazy"><div class="bub"><b style="color:var(--c-sia)">시아</b>한 장면이면 제 팀이죠?</div></div><div class="line r"><img src="assets/chars/moa_e09.webp" alt="모아" width="96" height="96" loading="lazy"><div class="bub"><b style="color:var(--c-moa)">모아</b>끝없는 시간이면 제 팀이고요.</div></div></div></div></section>
+<section class="room" id="r15"><div class="wrap">
+<div class="roomno">15번 방</div>
+<h2>솔로우 모형과 황금률 — 한 장면의 라그랑지안</h2><p class="muted">정상 상태 소비를 가장 크게 하는 저축률</p>
+<div class="tags"><span class="tag src">이 페이지에서 새로 만든 실험 · 예시 수치</span><span class="tag how">방법: 울타리 안에서 소비 최대</span><span class="tag day">일상: 월급에서 얼마를 모을까</span></div>
+<div class="duo">
+<div class="box why"><h4>왜 이 방법을 쓰나</h4><ol><li><b>문제</b> — 한 나라가 소득의 몇 %를 저축해야 오래도록 가장 많이 소비할까요?</li><li><b>앞 방의 한계</b> — 솔로우 모형은 저축률을 정해 두고 시작합니다. 그 자체로는 고르는 문제가 없습니다.</li><li><b>해법</b> — &quot;소비 + 기계 유지비 = 생산&quot;이라는 울타리를 두고 소비를 최대로 하면 라그랑지안 문제가 됩니다.</li></ol><div class="easy"><b>쉽게 말하면</b> — 너무 적게 모으면 기계가 모자라고, 너무 많이 모으면 쓸 돈이 없습니다. 그 사이 한 점이 황금률입니다.</div></div>
+<div class="box mathbox"><h4>수학 수식을 어려워하는 조수가 대신 물어봅니다</h4>
+<div class="q"><img src="assets/chars/haru_e04.webp" alt="조수 하루" width="96" height="96" loading="lazy"><div><b>조수</b> 솔로우 모형도 최적화 모형이에요?</div></div>
+<p><b>학교 수학으로 보면</b> — 거듭제곱 함수, 미분(기울기 = 0인 곳)</p>
+<table><thead><tr><th>식 조각</th><th>뜻</th></tr></thead><tbody><tr><td class='m'>y = k^(1/3)</td><td>일꾼 한 명당 생산(k는 기계)</td></tr><tr><td class='m'>0.1k</td><td>기계 유지비(인구 증가 + 닳는 몫)</td></tr><tr><td class='m'>c + 0.1k = y</td><td>울타리: 소비 + 유지비 = 생산</td></tr><tr><td class='m'>생산의 기울기 = 0.1</td><td>라그랑지안의 답(λ = 1)</td></tr></tbody></table>
+<div class="try"><b>숫자로 한 번 해 보기</b><div>저축률 0.2 → 기계 2.83, 소비 1.131</div><div>저축률 1/3 → 기계 6.09, 소비 1.217(가장 큼)</div><div>저축률 0.5 → 기계 11.18, 소비 1.118</div></div>
+<div class="q"><img src="assets/chars/haru_e16.webp" alt="조수 하루" width="96" height="96" loading="lazy"><div><b>조수</b> 모형 자체는 최적화가 아닌데, &quot;가장 좋은 저축률은?&quot;을 물으면 라그랑지안이 나오는군요.</div></div></div>
+</div>
+<div class="pair"><div class="box"><h4>일상으로 치면</h4><p>월급을 하나도 안 모아도, 다 모아도 오래 가지 못합니다. 적당한 비율이 있습니다.</p></div><div class="box ml"><h4>AI에서는</h4><p>&quot;모형은 정해 두고, 설정값(하이퍼파라미터) 하나를 골라 성과를 최대로&quot;라는 구조가 같습니다. 학습률을 고르는 일과 비슷합니다.</p></div></div>
+
+<div class="talk"><div class="line"><img src="assets/chars/doctor_e08.webp" alt="박사" width="96" height="96" loading="lazy"><div class="bub"><b style="color:var(--c-doc)">박사</b>경제학에도 두 지도가 있다. 먼저 한 장면의 선택이다.</div></div><div class="line"><img src="assets/chars/jupanbot_e16.webp" alt="주판봇" width="96" height="96" loading="lazy"><div class="bub"><b style="color:var(--c-robo)">주판봇</b>솔로우 모형도 최적화 모형이죠? 다 최적화잖아요!</div></div><div class="line"><img src="assets/chars/fruitfly_e09.webp" alt="초파리 연구원" width="96" height="96" loading="lazy"><div class="bub"><b style="color:var(--c-fly)">초파리 연구원</b>저축률을 움직여 봐. 소비 곡선의 꼭대기가 어딘가.</div></div></div>
+<div class="panel"><div class="ph"><b>실험 패널 15</b><small>저축률을 바꿔 보세요 · 생산 k^(1/3), 유지비 0.1k</small></div><div id="pp-p15" data-panel="p15"></div><div class="ctrl"><label>저축률 <input type="range" min="0.05" max="0.9" step="0.01" value="0.2" aria-label="저축률"></label></div><div class="readout" aria-live="polite"></div></div>
+<div class="solve"><h4>풀이</h4><p>저축률 1/3(약 0.33)에서 소비가 1.217로 가장 큽니다. 이것이 황금률입니다.</p><p>솔로우 모형은 저축률을 고르지 않습니다(주판봇 오답). 황금률을 물을 때 비로소 울타리 있는 최적화가 됩니다.</p></div>
+<div class="limit"><b>이 방의 한계</b> — 황금률은 &quot;한 장면(정상 상태)&quot;만 봅니다. 사람이 두 시점에 걸쳐 고르면? → 16번 방</div>
+
+<div class="quiz" data-ans="1" data-ok="모형은 저축률을 정해 두고, 황금률을 물을 때 최적화가 됩니다." data-no="모형 자체는 고르는 문제가 없습니다."><div class="qq">확인 퀴즈 — 솔로우 모형에서 라그랑지안을 쓸 수 있는 곳은?</div><div class="opts"><button type="button">모형 자체의 저축률 결정</button><button type="button">황금률(소비가 가장 큰 저축률)을 물을 때</button><button type="button">어디에도 없다</button></div><div class="fb" aria-live="polite"></div></div>
+</div></section>
+<section class="room" id="r16"><div class="wrap">
+<div class="roomno">16번 방</div>
+<h2>두 기간을 사는 사람 — 중첩세대</h2><p class="muted">젊을 때 벌고, 늙어서 쓴다. 두 시점이니 라그랑지안</p>
+<div class="tags"><span class="tag src">이 페이지에서 새로 만든 실험 · 예시 수치</span><span class="tag how">방법: 두 기간 예산 울타리 + λ</span><span class="tag day">일상: 노후 대비 저축</span></div>
+<div class="duo">
+<div class="box why"><h4>왜 이 방법을 쓰나</h4><ol><li><b>문제</b> — 젊을 때 번 돈을 지금 쓸지, 늙어서 쓸지 나누고 싶습니다.</li><li><b>앞 방의 한계</b> — 황금률은 한 장면만 봐서 &quot;언제 쓸까&quot;를 다루지 못합니다.</li><li><b>해법</b> — 젊을 때와 늙을 때 두 시점의 예산을 울타리로 두고 λ를 붙여 풉니다(다이아몬드 모형).</li></ol><div class="easy"><b>쉽게 말하면</b> — 오늘 1만 원을 참으면 내일 1만 5천 원이 됩니다. 오늘과 내일의 만족을 맞춥니다.</div></div>
+<div class="box mathbox"><h4>수학 수식을 어려워하는 조수가 대신 물어봅니다</h4>
+<div class="q"><img src="assets/chars/haru_e04.webp" alt="조수 하루" width="96" height="96" loading="lazy"><div><b>조수</b> 두 기간뿐이면 해밀토니안은 안 써요?</div></div>
+<p><b>학교 수학으로 보면</b> — 로그함수, 일차함수(예산선), 미분</p>
+<table><thead><tr><th>식 조각</th><th>뜻</th></tr></thead><tbody><tr><td class='m'>ln c₁ + ln c₂</td><td>젊을 때·늙을 때 소비의 만족</td></tr><tr><td class='m'>c₁ + c₂/1.5 = 100</td><td>예산 울타리(이자 50%, 한 세대 기준)</td></tr><tr><td class='m'>λ</td><td>돈 1원의 그림자 가격</td></tr></tbody></table>
+<div class="try"><b>숫자로 한 번 해 보기</b><div>젊을 때 소비 c₁ = 50, 저축 50</div><div>늙어서 c₂ = 50 × 1.5 = 75</div><div>λ = 1/c₁ = 0.02</div></div>
+<div class="q"><img src="assets/chars/haru_e16.webp" alt="조수 하루" width="96" height="96" loading="lazy"><div><b>조수</b> 시점이 딱 두 개라서 라그랑지안 하나로 끝나는군요.</div></div></div>
+</div>
+<div class="pair"><div class="box"><h4>일상으로 치면</h4><p>월급을 받으면 이번 달 쓸 돈과 노후 연금을 나눕니다.</p></div><div class="box ml"><h4>AI에서는</h4><p>두 시점 문제는 강화학습에서 &quot;지금 보상 vs 다음 보상&quot;을 저울질하는 것과 같은 모양입니다.</p></div></div>
+
+<div class="talk"><div class="line"><img src="assets/chars/doctor_e09.webp" alt="박사" width="96" height="96" loading="lazy"><div class="bub"><b style="color:var(--c-doc)">박사</b>이번엔 시점이 두 개다. 젊을 때와 늙었을 때.</div></div><div class="line"><img src="assets/chars/sia_e01.webp" alt="시아" width="96" height="96" loading="lazy"><div class="bub"><b style="color:var(--c-sia)">시아</b>저는 젊을 때 다 쓸래요!</div></div><div class="line"><img src="assets/chars/fruitfly_e09.webp" alt="초파리 연구원" width="96" height="96" loading="lazy"><div class="bub"><b style="color:var(--c-fly)">초파리 연구원</b>젊을 때 소비를 움직여 봐. 만족이 가장 큰 곳을 찾아.</div></div></div>
+<div class="panel"><div class="ph"><b>실험 패널 16</b><small>젊을 때 소비를 바꿔 보세요 · 임금 100, 이자 50%</small></div><div id="pp-p16" data-panel="p16"></div><div class="ctrl"><label>젊을 때 소비 <input type="range" min="5" max="95" step="5" value="80" aria-label="젊을 때 소비"></label></div><div class="readout" aria-live="polite"></div></div>
+<div class="solve"><h4>풀이</h4><p>젊을 때 50, 늙어서 75일 때 만족이 가장 큽니다.</p><p>로머 교과서 등에서 이 모형은 두 기간 예산의 라그랑지안으로 풉니다. 시점이 끝없이 이어지면 이야기가 달라집니다.</p></div>
+<div class="limit"><b>이 방의 한계</b> — 시점이 두 개가 아니라 끝없이 이어지면, 시점마다 λ를 붙이기가 벅찹니다. → 17번 방</div>
+
+<div class="quiz" data-ans="1" data-ok="남은 50 × 1.5 = 75입니다." data-no="저축한 돈에 이자 50%가 붙습니다."><div class="qq">확인 퀴즈 — 젊을 때 50을 쓰면 늙어서 쓸 수 있는 돈은? (이자 50%)</div><div class="opts"><button type="button">50</button><button type="button">75</button><button type="button">100</button></div><div class="fb" aria-live="polite"></div></div>
+</div></section>
+<section class="room" id="r17"><div class="wrap">
+<div class="roomno">17번 방</div>
+<h2>끝없이 사는 가계 — 램지 모형의 해밀토니안</h2><p class="muted">시간 위의 그림자 가격 μ</p>
+<div class="tags"><span class="tag src">이 페이지에서 새로 만든 실험 · 예시 수치</span><span class="tag how">방법: 순간마다 세운 라그랑지안 = 해밀토니안</span><span class="tag day">일상: 케이크를 오래 나눠 먹기</span></div>
+<div class="duo">
+<div class="box why"><h4>왜 이 방법을 쓰나</h4><ol><li><b>문제</b> — 가계가 끝없이 이어지며 소비와 저축을 고른다면 어떻게 될까요?</li><li><b>앞 방의 한계</b> — 16번 방처럼 시점마다 λ를 붙이면 λ가 끝없이 많아집니다.</li><li><b>해법</b> — 순간마다 &quot;만족 + μ × 재산 변화&quot;를 세운 해밀토니안으로 풀면, μ 하나가 시간을 따라 흐릅니다.</li></ol><div class="easy"><b>쉽게 말하면</b> — 케이크 한 판을 평생 나눠 먹을 때, 미래를 많이 깎는 사람일수록 앞에서 많이 먹습니다.</div></div>
+<div class="box mathbox"><h4>수학 수식을 어려워하는 조수가 대신 물어봅니다</h4>
+<div class="q"><img src="assets/chars/haru_e04.webp" alt="조수 하루" width="96" height="96" loading="lazy"><div><b>조수</b> μ가 시간에 따라 변하는 그림자 가격이라고요?</div></div>
+<p><b>학교 수학으로 보면</b> — 지수함수(해마다 일정 비율로 줄기), 등비수열</p>
+<table><thead><tr><th>식 조각</th><th>뜻</th></tr></thead><tbody><tr><td class='m'>H = ln c + μ·(−c)</td><td>케이크 문제의 해밀토니안</td></tr><tr><td class='m'>μ = 1/c</td><td>케이크 한 조각의 그림자 가격</td></tr><tr><td class='m'>μ가 해마다 ρ씩 오름</td><td>c는 해마다 ρ씩 줄어듦</td></tr><tr><td class='m'>생산 기울기 = ρ + 닳는 비율</td><td>램지의 정상 상태(수정 황금률)</td></tr></tbody></table>
+<div class="try"><b>숫자로 한 번 해 보기</b><div>케이크 100, 할인율 ρ = 0.05(미래를 깎는 비율) → 첫해 소비 5, 해마다 5%씩 줄어듦</div><div>램지(생산 k^(1/3), 할인율 0.04, 닳는 비율 0.08): 기계 4.63, 소비 1.204</div><div>황금률(15번 방): 기계 6.09, 소비 1.217 — 램지가 덜 모음</div></div>
+<div class="q"><img src="assets/chars/haru_e16.webp" alt="조수 하루" width="96" height="96" loading="lazy"><div><b>조수</b> 미래를 깎아 보니 황금률보다 기계를 덜 모으는군요.</div></div></div>
+</div>
+<div class="pair"><div class="box"><h4>일상으로 치면</h4><p>연금을 받을 때 앞에서 조금 더 쓰고 뒤로 갈수록 줄이는 사람이 많은 것과 같습니다.</p></div><div class="box ml"><h4>AI에서는</h4><p>강화학습의 할인율 γ가 ρ와 같은 역할입니다(γ가 작을수록 미래를 많이 깎음). 연속시간에서 가치함수가 따르는 식이 해밀턴–야코비–벨만 식입니다.</p></div></div>
+
+<div class="talk"><div class="line"><img src="assets/chars/doctor_e08.webp" alt="박사" width="96" height="96" loading="lazy"><div class="bub"><b style="color:var(--c-doc)">박사</b>시점이 끝없으면 지도를 바꾼다. 해밀토니안이다.</div></div><div class="line r"><img src="assets/chars/moa_e09.webp" alt="모아" width="96" height="96" loading="lazy"><div class="bub"><b style="color:var(--c-moa)">모아</b>μ가 시간에 따라 오르면 소비는 줄어드는 거예요?</div></div><div class="line"><img src="assets/chars/fruitfly_e09.webp" alt="초파리 연구원" width="96" height="96" loading="lazy"><div class="bub"><b style="color:var(--c-fly)">초파리 연구원</b>해를 움직여 봐. 케이크와 한 해 소비가 함께 줄어드나.</div></div></div>
+<div class="panel"><div class="ph"><b>실험 패널 17</b><small>햇수를 바꿔 보세요 · 케이크 100, 할인율 0.05</small></div><div id="pp-p17" data-panel="p17"></div><div class="ctrl"><label>햇수 <input type="range" min="0" max="60" step="1" value="0" aria-label="햇수"></label></div><div class="readout" aria-live="polite"></div></div>
+<div class="solve"><h4>풀이</h4><p>케이크와 한 해 소비가 모두 해마다 5%씩 줄어듭니다. 한 해 소비는 늘 남은 케이크의 5%입니다.</p><p>로머 교과서는 램지 가계 문제를 평생 예산의 라그랑지안으로도 풉니다. 많은 강의는 이 해밀토니안 풀이를 씁니다. 두 지도는 같은 답을 줍니다.</p></div>
+<div class="limit"><b>이 방의 한계</b> — 가계 말고 기업도 시간에 걸쳐 고릅니다. 기계 한 대의 그림자 가격은 무엇일까요? → 18번 방</div>
+
+<div class="quiz" data-ans="1" data-ok="미래를 깎아 보니 4.63 &lt; 6.09, 더 적습니다." data-no="할인율 ρ만큼 미래를 깎아 봅니다."><div class="qq">확인 퀴즈 — 램지 모형의 기계(자본)는 황금률과 비교해?</div><div class="opts"><button type="button">더 많다</button><button type="button">더 적다</button><button type="button">같다</button></div><div class="fb" aria-live="polite"></div></div>
+</div></section>
+<section class="room" id="r18"><div class="wrap">
+<div class="roomno">18번 방</div>
+<h2>기계 한 대의 그림자 가격 — 투자 q 이론</h2><p class="muted">해밀토니안의 공동상태변수 = 토빈의 q</p>
+<div class="tags"><span class="tag src">이 페이지에서 새로 만든 실험 · 예시 수치</span><span class="tag how">방법: 설치된 기계의 값과 새 기계 값 비교</span><span class="tag day">일상: 중고 가게를 차릴까</span></div>
+<div class="duo">
+<div class="box why"><h4>왜 이 방법을 쓰나</h4><ol><li><b>문제</b> — 기업이 기계를 언제, 얼마나 사들일지 정하고 싶습니다.</li><li><b>앞 방의 한계</b> — 기계를 들이면 설치·적응 비용이 들어 한꺼번에 바꾸기 어렵습니다.</li><li><b>해법</b> — 해밀토니안으로 풀면 공동상태변수 q가 &quot;설치된 기계 한 대의 값&quot;이 됩니다.</li></ol><div class="easy"><b>쉽게 말하면</b> — 이미 돌아가는 가게가 새로 차리는 비용보다 비싸게 팔리면, 가게를 더 차리는 게 이득입니다.</div></div>
+<div class="box mathbox"><h4>수학 수식을 어려워하는 조수가 대신 물어봅니다</h4>
+<div class="q"><img src="assets/chars/haru_e04.webp" alt="조수 하루" width="96" height="96" loading="lazy"><div><b>조수</b> q가 1보다 크면 투자한다는 건 왜예요?</div></div>
+<p><b>학교 수학으로 보면</b> — 일차함수, 이차함수(설치 비용)</p>
+<table><thead><tr><th>식 조각</th><th>뜻</th></tr></thead><tbody><tr><td class='m'>q</td><td>설치된 기계 한 대의 그림자 가격(토빈의 q)</td></tr><tr><td class='m'>½·I²</td><td>투자 I만큼 들일 때 설치 비용</td></tr><tr><td class='m'>1 + I = q</td><td>기계값 1 + 설치 비용의 기울기 = 그림자 가격</td></tr><tr><td class='m'>I = q − 1</td><td>투자 규칙</td></tr></tbody></table>
+<div class="try"><b>숫자로 한 번 해 보기</b><div>q = 1.2 → 투자 0.2</div><div>q = 1 → 투자 0(그대로)</div><div>q = 0.8 → 투자 −0.2(기계를 줄임)</div></div>
+<div class="q"><img src="assets/chars/haru_e16.webp" alt="조수 하루" width="96" height="96" loading="lazy"><div><b>조수</b> 14번 방 역전파의 그림자 가격이랑 같은 자리네요!</div></div></div>
+</div>
+<div class="pair"><div class="box"><h4>일상으로 치면</h4><p>주식시장이 기업을 장부 가치보다 높게 쳐주면, 그 기업은 공장을 더 짓습니다.</p></div><div class="box ml"><h4>AI에서는</h4><p>14번 방의 역전파가 나르는 숫자와 같은 자리(공동상태변수)입니다. 둘 다 &quot;이것 1 늘면 목표가 얼마나&quot;를 알려 줍니다.</p></div></div>
+
+<div class="talk"><div class="line"><img src="assets/chars/doctor_e07.webp" alt="박사" width="96" height="96" loading="lazy"><div class="bub"><b style="color:var(--c-doc)">박사</b>기업에도 그림자 가격이 있다. 로머 교과서의 투자 장이 이 해밀토니안을 쓴다.</div></div><div class="line"><img src="assets/chars/jupanbot_e16.webp" alt="주판봇" width="96" height="96" loading="lazy"><div class="bub"><b style="color:var(--c-robo)">주판봇</b>기계는 싸면 무조건 많이 사면 되죠!</div></div><div class="line"><img src="assets/chars/fruitfly_e09.webp" alt="초파리 연구원" width="96" height="96" loading="lazy"><div class="bub"><b style="color:var(--c-fly)">초파리 연구원</b>q를 1 위아래로 움직여 봐. 투자 막대가 어떻게 되나.</div></div></div>
+<div class="panel"><div class="ph"><b>실험 패널 18</b><small>q를 바꿔 보세요 · 설치 비용 ½·I²</small></div><div id="pp-p18" data-panel="p18"></div><div class="ctrl"><label>q <input type="range" min="0.6" max="1.6" step="0.05" value="1.2" aria-label="q"></label></div><div class="readout" aria-live="polite"></div></div>
+<div class="solve"><h4>풀이</h4><p>q가 1보다 크면 사들이고(투자 +), 1보다 작으면 줄입니다(투자 −).</p><p>주판봇의 말과 달리, 싼 것보다 &quot;설치된 값(q)이 새 값(1)보다 큰가&quot;가 기준입니다.</p></div>
+<div class="limit"><b>이 방의 한계</b> — 경제학의 두 지도를 봤습니다. 해밀토니안이 가장 깊이 쓰이는 곳은 양자역학입니다. → ⑥편(심화)</div>
+
+<div class="quiz" data-ans="1" data-ok="I = q − 1 = 0.2, 더 들입니다." data-no="q가 1보다 큰지 보세요."><div class="qq">확인 퀴즈 — 토빈의 q가 1.2일 때 기업은?</div><div class="opts"><button type="button">기계를 줄인다</button><button type="button">기계를 더 들인다(투자 0.2)</button><button type="button">아무것도 안 한다</button></div><div class="fb" aria-live="polite"></div></div>
+</div></section>
+<section><div class="wrap"><div class="next"><a href="04_ai_hamiltonian.html">← ④편</a><a href="06_quantum.html">⑥편 양자의 해밀토니안 — 연산자에서 최적화까지 →</a></div></div></section><section id="kg"><div class="wrap"><h2>지식 색인 — 이 페이지에서 찾아보기</h2>
+<p class="muted">이 페이지에 나온 방과 개념을 모았습니다. 검색하고, "설명 보러 가기"로 본문에 돌아갑니다.</p><div id="kg-mount"></div></div></section>
+<section id="export"><div class="wrap"><h2>온톨로지·서지 꾸러미 — 이 페이지의 지식을 가져가기</h2>
+<p class="muted">지식 색인을 출처와 함께 파일로 내려받습니다. Zotero(BibTeX·RIS), Protégé(Turtle), Neo4j·Gephi(CSV), 여러 페이지 합치기(kg.json)에 씁니다.</p><div id="export-mount"></div></div></section>
+<script type="application/json" id="kg-raw">{"version": "1.3", "page": "05_economics", "series": "두 장의 지도", "nodes": [{"id": "lab:room/r15", "type": "Application", "label": {"ko": "솔로우 모형과 황금률 — 한 장면의 라그랑지안", "en": "r15"}, "anchor": "#r15", "desc": "정상 상태 소비를 가장 크게 하는 저축률", "page": "05_economics", "source": "lab:work/lagrangian_hamiltonian_lab"}, {"id": "lab:room/r16", "type": "Application", "label": {"ko": "두 기간을 사는 사람 — 중첩세대", "en": "r16"}, "anchor": "#r16", "desc": "젊을 때 벌고, 늙어서 쓴다. 두 시점이니 라그랑지안", "page": "05_economics", "source": "lab:work/lagrangian_hamiltonian_lab"}, {"id": "lab:room/r17", "type": "Application", "label": {"ko": "끝없이 사는 가계 — 램지 모형의 해밀토니안", "en": "r17"}, "anchor": "#r17", "desc": "시간 위의 그림자 가격 μ", "page": "05_economics", "source": "lab:work/lagrangian_hamiltonian_lab"}, {"id": "lab:room/r18", "type": "Application", "label": {"ko": "기계 한 대의 그림자 가격 — 투자 q 이론", "en": "r18"}, "anchor": "#r18", "desc": "해밀토니안의 공동상태변수 = 토빈의 q", "page": "05_economics", "source": "lab:work/lagrangian_hamiltonian_lab"}, {"id": "lab:concept/lagrangian", "type": "Concept", "label": {"ko": "라그랑지안(T − V)", "en": "Lagrangian"}, "anchor": "#r02", "desc": "길 전체에 점수를 매기는 지도", "page": "01_lagrangian", "source": "lab:work/lagrangian_hamiltonian_lab"}, {"id": "lab:concept/hamiltonian", "type": "Concept", "label": {"ko": "해밀토니안(T + V)", "en": "Hamiltonian"}, "anchor": "#r06", "desc": "지금 이 순간의 화살표를 보는 지도", "page": "02_hamiltonian", "source": "lab:work/lagrangian_hamiltonian_lab"}], "edges": [{"s": "lab:room/r15", "p": "motivates", "o": "lab:room/r16"}, {"s": "lab:room/r16", "p": "motivates", "o": "lab:room/r17"}, {"s": "lab:room/r17", "p": "motivates", "o": "lab:room/r18"}, {"s": "lab:concept/lagrangian", "p": "usedIn", "o": "lab:room/r15"}, {"s": "lab:concept/lagrangian", "p": "usedIn", "o": "lab:room/r16"}, {"s": "lab:concept/hamiltonian", "p": "usedIn", "o": "lab:room/r17"}, {"s": "lab:concept/hamiltonian", "p": "usedIn", "o": "lab:room/r18"}, {"s": "lab:concept/lagrangian", "p": "relatedTo", "o": "lab:concept/hamiltonian"}]}</script>
+<script type="application/ld+json" id="kg-ld">{"@context": {"@vocab": "urn:lab:", "skos": "http://www.w3.org/2004/02/skos/core#", "schema": "https://schema.org/"}, "@graph": [{"@id": "urn:lab:room/r15", "@type": "Application", "skos:prefLabel": [{"@value": "솔로우 모형과 황금률 — 한 장면의 라그랑지안", "@language": "ko"}, {"@value": "r15", "@language": "en"}], "skos:definition": "정상 상태 소비를 가장 크게 하는 저축률", "schema:url": "https://adminmrobo.github.io/lagrangian_hamiltonian_lab/05_economics.html#r15"}, {"@id": "urn:lab:room/r16", "@type": "Application", "skos:prefLabel": [{"@value": "두 기간을 사는 사람 — 중첩세대", "@language": "ko"}, {"@value": "r16", "@language": "en"}], "skos:definition": "젊을 때 벌고, 늙어서 쓴다. 두 시점이니 라그랑지안", "schema:url": "https://adminmrobo.github.io/lagrangian_hamiltonian_lab/05_economics.html#r16"}, {"@id": "urn:lab:room/r17", "@type": "Application", "skos:prefLabel": [{"@value": "끝없이 사는 가계 — 램지 모형의 해밀토니안", "@language": "ko"}, {"@value": "r17", "@language": "en"}], "skos:definition": "시간 위의 그림자 가격 μ", "schema:url": "https://adminmrobo.github.io/lagrangian_hamiltonian_lab/05_economics.html#r17"}, {"@id": "urn:lab:room/r18", "@type": "Application", "skos:prefLabel": [{"@value": "기계 한 대의 그림자 가격 — 투자 q 이론", "@language": "ko"}, {"@value": "r18", "@language": "en"}], "skos:definition": "해밀토니안의 공동상태변수 = 토빈의 q", "schema:url": "https://adminmrobo.github.io/lagrangian_hamiltonian_lab/05_economics.html#r18"}, {"@id": "urn:lab:concept/lagrangian", "@type": "Concept", "skos:prefLabel": [{"@value": "라그랑지안(T − V)", "@language": "ko"}, {"@value": "Lagrangian", "@language": "en"}], "skos:definition": "길 전체에 점수를 매기는 지도", "schema:url": "https://adminmrobo.github.io/lagrangian_hamiltonian_lab/01_lagrangian.html#r02"}, {"@id": "urn:lab:concept/hamiltonian", "@type": "Concept", "skos:prefLabel": [{"@value": "해밀토니안(T + V)", "@language": "ko"}, {"@value": "Hamiltonian", "@language": "en"}], "skos:definition": "지금 이 순간의 화살표를 보는 지도", "schema:url": "https://adminmrobo.github.io/lagrangian_hamiltonian_lab/02_hamiltonian.html#r06"}]}</script>
+<script type="application/json" id="refs-csl">[{"id": "askwhyvalley_hamiltonian", "type": "graphic", "title": "The Hamiltonian Operator (infographic)", "author": [{"literal": "@askwhyvalley"}], "accessed": {"date-parts": [[2026, 11, 19]]}, "note": "사용자 제공 이미지. 다시 그려 실험 패널로 바꿈"}, {"id": "askwhyvalley_taylor", "type": "graphic", "title": "Taylor Series (infographic)", "author": [{"literal": "@askwhyvalley"}], "accessed": {"date-parts": [[2026, 11, 19]]}}, {"id": "matharium_lagrange", "type": "graphic", "title": "Lagrange Multipliers (infographic)", "author": [{"literal": "matharium"}], "accessed": {"date-parts": [[2026, 11, 19]]}}, {"id": "greydanus2019", "type": "paper-conference", "title": "Hamiltonian Neural Networks", "author": [{"family": "Greydanus"}, {"family": "Dzamba"}, {"family": "Yosinski"}], "issued": {"date-parts": [[2019]]}, "container-title": "NeurIPS"}, {"id": "cranmer2020", "type": "article", "title": "Lagrangian Neural Networks", "author": [{"family": "Cranmer"}], "issued": {"date-parts": [[2020]]}}, {"id": "chen2018", "type": "paper-conference", "title": "Neural Ordinary Differential Equations", "author": [{"family": "Chen"}], "issued": {"date-parts": [[2018]]}, "container-title": "NeurIPS"}, {"id": "su2014", "type": "paper-conference", "title": "A Differential Equation for Modeling Nesterov's Accelerated Gradient Method", "author": [{"family": "Su"}, {"family": "Boyd"}, {"family": "Candès"}], "issued": {"date-parts": [[2014]]}}, {"id": "ramsauer2020", "type": "article", "title": "Hopfield Networks is All You Need", "author": [{"family": "Ramsauer"}], "issued": {"date-parts": [[2020]]}}, {"id": "romer_am", "type": "book", "title": "Advanced Macroeconomics", "author": [{"family": "Romer", "given": "David"}], "publisher": "McGraw-Hill"}]</script>
+<script type="application/json" id="page-meta">{"title": "05_economics", "series": "두 장의 지도", "creator": [{"name": "안상선", "role": "author", "affiliation": "(주)M-Robo"}], "date": "2026-11-19", "version": "v1.0", "license": "캐릭터·그림 무단 사용 금지"}</script>
+<footer><div class="wrap">
+<h3>출처</h3>
+<div class="tbl"><table><thead><tr><th>#</th><th>자료</th><th>이 페이지에서 쓴 곳</th></tr></thead><tbody>
+<tr><td>[1]</td><td>@askwhyvalley, 인포그래픽 「The Hamiltonian Operator」 (사용자 제공 이미지, 2026-11-19 확인)</td><td>방 5~7, 19~20. 식을 다시 써서 실험 패널로 바꿈. 이미지는 붙여 넣지 않음</td></tr>
+<tr><td>[2]</td><td>@askwhyvalley, 인포그래픽 「Taylor Series」 (사용자 제공 이미지)</td><td>방 8</td></tr>
+<tr><td>[3]</td><td>matharium, 인포그래픽 「Lagrange Multipliers」 (사용자 제공 이미지)</td><td>방 4, 비교 카드의 형식</td></tr>
+<tr><td>[4]</td><td>Greydanus 외(2019) 「Hamiltonian Neural Networks」, Cranmer 외(2020) 「Lagrangian Neural Networks」, Chen 외(2018) 「Neural Ordinary Differential Equations」, Su·Boyd·Candès(2014), Ramsauer 외(2020) 「Hopfield Networks is All You Need」</td><td>방 12·14·21·22에서 이름·연도·한 줄 사실만 소개</td></tr>
+<tr><td>[5]</td><td>D. Romer, 「Advanced Macroeconomics」 — 램지·중첩세대·투자 장의 풀이 방식</td><td>방 15~18에서 풀이 방식 소개(주장하지 않음)</td></tr>
+</tbody></table></div>
+<h3>원자료와 다르게 쓴 곳</h3>
+<p>원자료 ② e^x 예시의 2차 꼬리표 "1 + x x x²/2"를 이 페이지에서는 1 + x + x²/2로, sin x 예시의 3차 꼬리표 "x − x²/6"을 x − x³/6으로 바꿉니다. 원자료 ① 기호 상자의 "Hamiltonion"은 Hamiltonian으로 고칩니다. 원자료 ③ 예시에는 λ 값이 빠져 있어 λ = √2/2를 더해 적습니다.</p>
+<h3>예시값·설명용 숫자</h3>
+<p>배달 로봇의 속도·위험, 답 A·B의 확률, SVM의 점 4개, 임금·이자·케이크·저축률 수치는 설명을 위해 만든 예시값입니다. 모든 "숫자로 한 번 해 보기"는 build/check_numbers.py로 검산했습니다.</p>
+<p>캐릭터 이름·설정·그림은 저작권자 안상선의 허락 없이 사용할 수 없습니다. 캐릭터 그림: fruitfly-lab-expressions.</p>
+<p>글 · 안상선 ((주)M-Robo 대표) · <a href="https://adminmrobo.github.io/who_am_i/who_am_i.html">저자 소개</a> · 2026-11-19 · v1.0</p>
+<p><a href="index.html">목차</a> · <a href="00_orientation.html">0편</a> · <a href="01_lagrangian.html">①편</a> · <a href="02_hamiltonian.html">②편</a> · <a href="03_ai_lagrangian.html">③편</a> · <a href="04_ai_hamiltonian.html">④편</a> · <a href="05_economics.html">⑤편</a> · <a href="06_quantum.html">⑥편</a> · <a href="07_duel.html">⑦편</a> · <a href="https://github.com/adminmrobo/lagrangian_hamiltonian_lab">저장소</a></p>
+</div></footer>
+<script src="assets/panels.js"></script>
+</body></html>

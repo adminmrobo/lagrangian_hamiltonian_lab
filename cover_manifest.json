@@ -1,0 +1,74 @@
+{
+  "series_ko": "좌표축 위의 그릇 · 특집",
+  "title_ko": "두 장의 지도 — 라그랑지안 vs 해밀토니안",
+  "site_url": "https://adminmrobo.github.io/lagrangian_hamiltonian_lab/",
+  "site_title": "두 장의 지도 — 라그랑지안 vs 해밀토니안",
+  "ontology": {
+    "pages": [
+      {
+        "path": "index.html",
+        "kg": true,
+        "export": true
+      },
+      {
+        "path": "00_orientation.html",
+        "kg": true,
+        "export": true
+      },
+      {
+        "path": "01_lagrangian.html",
+        "kg": true,
+        "export": true
+      },
+      {
+        "path": "02_hamiltonian.html",
+        "kg": true,
+        "export": true
+      },
+      {
+        "path": "03_ai_lagrangian.html",
+        "kg": true,
+        "export": true
+      },
+      {
+        "path": "04_ai_hamiltonian.html",
+        "kg": true,
+        "export": true
+      },
+      {
+        "path": "05_economics.html",
+        "kg": true,
+        "export": true
+      },
+      {
+        "path": "06_quantum.html",
+        "kg": true,
+        "export": true
+      },
+      {
+        "path": "07_duel.html",
+        "kg": true,
+        "export": true
+      }
+    ],
+    "files": []
+  },
+  "i18n": {
+    "langs": [
+      "ko"
+    ],
+    "pages": {
+      "ko": 9
+    },
+    "readme_langs": [
+      "ko"
+    ]
+  },
+  "cover": {
+    "status": "pending",
+    "prompts": "docs/IMAGE_PROMPTS.md",
+    "files": [
+      "assets/img/cover_index.webp"
+    ]
+  }
+}
