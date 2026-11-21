@@ -103,3 +103,5 @@ assert ok((4.9**2 - 9.8*4.9)/6, -4.0) and ok(4.9**2, 24.01) and ok(9.8*4.9, 48.0
 pA = exp(1)/(exp(1)+1)
 assert ok(pA*LN(pA/.5), 0.28) and ok((1-pA)*LN((1-pA)/.5), -0.17) and ok(pA*LN(pA/.5)+(1-pA)*LN((1-pA)/.5), 0.11)
 print("v1.3 ok")
+assert ok((10**2 - 9.8*10)/6, 0.33)  # 방 3 AI 판단 코너
+print("aicheck ok")

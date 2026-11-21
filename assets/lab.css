@@ -207,3 +207,7 @@ body{line-height:1.8}
 .aicheck p{margin:6px 0}
 .aicheck details summary{cursor:pointer;color:var(--teal);font-weight:700}
 .talk{gap:14px}
+.try ol.steps{margin:8px 0 0;padding-left:22px;display:flex;flex-direction:column;gap:8px}
+details.formula{margin-top:12px;border:1px solid var(--rule);border-radius:10px;padding:10px 14px;background:#fff}
+details.formula summary{cursor:pointer;font-weight:700;color:var(--teal)}
+details.formula[open] summary{margin-bottom:8px}

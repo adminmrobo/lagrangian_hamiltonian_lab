@@ -8,7 +8,7 @@ from content_c import ROOMS_E, ROOMS_F, ROOMS_G
 from easy_extra import SAY, DOC, AI, SYM
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-VER = "v1.3"
+VER = "v1.4"
 DATE = "2026-11-19"
 SITE = "https://adminmrobo.github.io/lagrangian_hamiltonian_lab/"
 REPO = "https://github.com/adminmrobo/lagrangian_hamiltonian_lab"
@@ -180,7 +180,7 @@ def room(r):
     labels = ["문제", "앞 방의 한계", "해법"]
     why = "".join(f"<li><b>{labels[i]}</b> — {E(x)}</li>" for i, x in enumerate(r["why"]))
     pcs = "".join(f"<tr><td class='m'>{E(a)}</td><td>{E(b)}</td></tr>" for a, b in r["pieces"])
-    tries = "".join(f"<div>{E(t)}</div>" for t in r["tries"])
+    tries = "".join(f"<li>{E(t)}</li>" for t in r["tries"])
     solve = "".join(f"<p>{E(s)}</p>" for s in r["solve"])
     code = ""
     if r.get("code"):
@@ -213,11 +213,12 @@ def room(r):
 <div class="box why"><h4>왜 이 방법을 쓰나</h4><ol>{why}</ol><div class="easy"><b>쉽게 말하면</b> — {E(r['easy'])}</div></div>
 <div class="box mathbox"><h4>수학 수식을 어려워하는 조수가 대신 물어봅니다</h4>
 <div class="q">{face('haru','e04')}<div><b>조수</b> {E(r['haru_q'])}</div></div>
-<p><b>학교 수학으로 보면</b> — {E(r['school'])}</p>
 {say}
+<p><b>학교 수학으로 보면</b> — {E(r['school'])}</p>
+<div class="try"><b>숫자로 한 번 해 보기</b><ol class="steps">{tries}</ol></div>
+<details class="formula"><summary>식으로 보면 (몰라도 됩니다) — 식 조각 {len(r['pieces'])}개와 기호 읽기</summary>
 <table><thead><tr><th>식 조각</th><th>뜻</th></tr></thead><tbody>{pcs}</tbody></table>
-{symread}
-<div class="try"><b>숫자로 한 번 해 보기</b>{tries}</div>
+{symread}</details>
 <div class="q">{face('haru','e16')}<div><b>조수</b> {E(r['haru_c'])}</div></div></div>
 </div>
 <div class="pair"><div class="box"><h4>일상으로 치면</h4><p>{E(r['daily'])}</p></div><div class="box ml"><h4>AI에서는</h4><p>{E(r['ml'])}</p>{links}</div></div>

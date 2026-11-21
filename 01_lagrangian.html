@@ -17,7 +17,7 @@
 <nav class="top"><div class="row"><a class="logo" href="index.html">두 장의 <i>지도</i></a><div class="links"><a href="#r01">1번 방</a><a href="#r02">2번 방</a><a href="#r03">3번 방</a><a href="#r04">4번 방</a></div></div></nav>
 <div class="cover"><div class="frame"><img class="art" src="assets/img/cover_01.webp" alt="①편 · 방 1~4" width="1600" height="900"><span class="cap">①편 · 방 1~4</span></div></div>
 <header class="hero"><div class="wrap"><span class="kicker">①편 · 방 1~4</span><h1>차이의 지도 — 라그랑지안</h1><p class="lead">움직임 에너지에서 높이 에너지를 <b>빼서</b> 길 전체에 점수를 매깁니다. 점수가 멈추는 길이 자연이 고르는 길입니다.</p>
-<p class="byline">글 · 안상선 ((주)M-Robo 대표) · <a href="https://adminmrobo.github.io/who_am_i/who_am_i.html">저자 소개</a> · 2026-11-19 · v1.3</p></div></header>
+<p class="byline">글 · 안상선 ((주)M-Robo 대표) · <a href="https://adminmrobo.github.io/who_am_i/who_am_i.html">저자 소개</a> · 2026-11-19 · v1.4</p></div></header>
 <section><div class="wrap"><div class="three"><h2>처음 오신 분께 — 이 페이지를 3줄로</h2><ul>
 <li><b>무엇을</b>: 에너지를 빼서(T − V) 길 전체에 점수를 매기는 법과, 울타리 조건을 점수표에 넣는 법을 배웁니다.</li><li><b>왜 중요한가</b>: 법칙을 직접 짜지 않고 점수 규칙만 정하면 답이 나온다는 생각이 최적화·머신러닝과 같습니다.</li><li><b>업무에서는</b>: 예산·안전선 같은 조건을 지키며 가장 좋은 답을 고르는 일에 바로 쓰입니다.</li></ul>
 <p>코드·수식을 몰라도 됩니다. 식은 조수 상자 안에만 있습니다.</p>
@@ -33,11 +33,12 @@
 <div class="box why"><h4>왜 이 방법을 쓰나</h4><ol><li><b>문제</b> — 공 하나가 어떻게 움직일지 미리 계산하고 싶습니다.</li><li><b>앞 방의 한계</b> — 힘과 가속도로 풀면 방향이 여럿일 때 식이 금방 복잡해집니다.</li><li><b>해법</b> — 움직임의 에너지와 높이의 에너지, 두 숫자만 적어 두고 시작합니다.</li></ol><div class="easy"><b>쉽게 말하면</b> — 미끄럼틀 꼭대기의 아이는 높이 에너지가 크고, 내려오며 속도 에너지로 바꿉니다.</div></div>
 <div class="box mathbox"><h4>수학 수식을 어려워하는 조수가 대신 물어봅니다</h4>
 <div class="q"><img src="assets/chars/haru_e04.webp" alt="조수 하루" width="96" height="96" loading="lazy"><div><b>조수</b> 운동에너지, 위치에너지… 물리 시간에 들었는데 잊어버렸어요.</div></div>
-<p><b>학교 수학으로 보면</b> — 이차함수(속도의 제곱), 일차함수(높이에 비례)</p>
 <p class="saywords"><b>말로 먼저</b> — 움직이는 힘과 높이에 숨은 힘을 따로 적어 둡니다. 둘을 빼거나 더하면 이 특집의 두 주인공이 됩니다.</p>
+<p><b>학교 수학으로 보면</b> — 이차함수(속도의 제곱), 일차함수(높이에 비례)</p>
+<div class="try"><b>숫자로 한 번 해 보기</b><ol class="steps"><li>1kg 공이 초속 2m로 굴러가면 T = ½ × 1 × 2² = 2J</li><li>같은 공을 1m 높이에 두면 V = 1 × 9.8 × 1 = 9.8J</li></ol></div>
+<details class="formula"><summary>식으로 보면 (몰라도 됩니다) — 식 조각 3개와 기호 읽기</summary>
 <table><thead><tr><th>식 조각</th><th>뜻</th></tr></thead><tbody><tr><td class='m'>T = ½·m·v²</td><td>움직임의 에너지(운동에너지). 질량 m(물체가 가진 양, kg — 일상에서 &#x27;몸무게 50kg&#x27;의 그 숫자), 속도 v</td></tr><tr><td class='m'>V = m·g·h</td><td>높이의 에너지(위치에너지). 높이 h, 중력 g ≈ 9.8</td></tr><tr><td class='m'>J(줄)</td><td>에너지의 단위</td></tr></tbody></table>
-
-<div class="try"><b>숫자로 한 번 해 보기</b><div>1kg 공이 초속 2m로 굴러가면 T = ½ × 1 × 2² = 2J</div><div>같은 공을 1m 높이에 두면 V = 1 × 9.8 × 1 = 9.8J</div></div>
+</details>
 <div class="q"><img src="assets/chars/haru_e16.webp" alt="조수 하루" width="96" height="96" loading="lazy"><div><b>조수</b> 속도는 제곱이라 두 배 빨라지면 움직임 에너지는 네 배군요.</div></div></div>
 </div>
 <div class="pair"><div class="box"><h4>일상으로 치면</h4><p>자전거로 언덕을 내려오면 높이는 줄고 속도는 붙습니다. 두 에너지가 서로 바뀝니다.</p></div><div class="box ml"><h4>AI에서는</h4><p>모델 학습도 &quot;높이 = 오차&quot;인 지형 위를 굴러가는 공으로 봅니다. 그릇 시리즈의 그 지형입니다.</p></div></div>
@@ -58,11 +59,12 @@
 <div class="box why"><h4>왜 이 방법을 쓰나</h4><ol><li><b>문제</b> — 0초에 출발점, 1초에 도착점에 있는 공은 어느 길로 갈까요?</li><li><b>앞 방의 한계</b> — 1번 방은 에너지 숫자만 알려 주고 길은 고르지 못합니다.</li><li><b>해법</b> — 길 위의 매 순간 T − V를 모두 더해 점수(작용)를 매기고, 점수가 멈추는 길을 고릅니다.</li></ol><div class="easy"><b>쉽게 말하면</b> — 내비게이션이 길마다 점수를 매겨 하나를 고르듯, 자연도 길마다 점수를 매깁니다.</div></div>
 <div class="box mathbox"><h4>수학 수식을 어려워하는 조수가 대신 물어봅니다</h4>
 <div class="q"><img src="assets/chars/haru_e04.webp" alt="조수 하루" width="96" height="96" loading="lazy"><div><b>조수</b> 작용? 길 전체에 점수를 준다는 게 무슨 뜻이에요?</div></div>
-<p><b>학교 수학으로 보면</b> — 정적분(곡선 아래 넓이), 이차함수의 최솟값</p>
 <p class="saywords"><b>말로 먼저</b> — 길을 잘게 나눠 매 순간 점수를 매기고 모두 더합니다. 그 합이 살짝 비틀어도 거의 변하지 않는 길이 실제 길입니다.</p>
+<p><b>학교 수학으로 보면</b> — 정적분(곡선 아래 넓이), 이차함수의 최솟값</p>
+<div class="try"><b>숫자로 한 번 해 보기</b><ol class="steps"><li>높이 에너지가 없을 때(V = 0) 작용 = ½(1 + a²/3)</li><li>곧은 길 a = 0 → 0.5, 휜 길 a = 1 → 약 0.667</li><li>가장 작은 점수는 a = 0, 곧은 길입니다.</li></ol></div>
+<details class="formula"><summary>식으로 보면 (몰라도 됩니다) — 식 조각 3개와 기호 읽기</summary>
 <table><thead><tr><th>식 조각</th><th>뜻</th></tr></thead><tbody><tr><td class='m'>L = T − V</td><td>매 순간의 점수(라그랑지안)</td></tr><tr><td class='m'>S = ∫ L dt</td><td>길 위의 점수를 모두 더한 값(작용)</td></tr><tr><td class='m'>x = t + a·t(1 − t)</td><td>출발 0, 도착 1이 같은 길들. a는 휜 정도</td></tr></tbody></table>
-<div class="symread"><b>기호 읽기</b><span><b>∫</b> 인티그럴 — 잘게 나눠 모두 더하기</span></div>
-<div class="try"><b>숫자로 한 번 해 보기</b><div>높이 에너지가 없을 때(V = 0) 작용 = ½(1 + a²/3)</div><div>곧은 길 a = 0 → 0.5, 휜 길 a = 1 → 약 0.667</div><div>가장 작은 점수는 a = 0, 곧은 길입니다.</div></div>
+<div class="symread"><b>기호 읽기</b><span><b>∫</b> 인티그럴 — 잘게 나눠 모두 더하기</span></div></details>
 <div class="q"><img src="assets/chars/haru_e16.webp" alt="조수 하루" width="96" height="96" loading="lazy"><div><b>조수</b> 휜 길은 중간에 더 빨리 달려야 해서 점수가 커지는군요.</div></div></div>
 </div>
 <div class="pair"><div class="box"><h4>일상으로 치면</h4><p>같은 시간 안에 같은 곳에 가야 한다면, 쓸데없이 돌아가는 길은 힘만 더 듭니다.</p></div><div class="box ml"><h4>AI에서는</h4><p>모델을 고를 때도 후보마다 점수(손실)를 매기고 가장 낮은 것을 고릅니다. 다만 여기서는 점(가중치)이 아니라 길 전체에 점수를 줍니다.</p></div></div>
@@ -83,11 +85,12 @@
 <div class="box why"><h4>왜 이 방법을 쓰나</h4><ol><li><b>문제</b> — 공을 위로 던져 1초 뒤 같은 손에 받습니다. 공은 얼마나 높이 올라갈까요?</li><li><b>앞 방의 한계</b> — 2번 방에는 높이 에너지가 없어 곧은 길이 답이었습니다.</li><li><b>해법</b> — 높이 에너지를 넣고 점수가 가장 낮은 길을 찾으면 뉴턴 법칙과 같은 답이 나옵니다.</li></ol><div class="easy"><b>쉽게 말하면</b> — 점수 규칙 하나만 정하면, &quot;떨어지는 가속도는 9.8&quot;이라는 법칙이 저절로 나옵니다.</div></div>
 <div class="box mathbox"><h4>수학 수식을 어려워하는 조수가 대신 물어봅니다</h4>
 <div class="q"><img src="assets/chars/haru_e04.webp" alt="조수 하루" width="96" height="96" loading="lazy"><div><b>조수</b> 오일러–라그랑주 식이요? 이름이 두 개나 붙어 있어서 더 무서워요.</div></div>
-<p><b>학교 수학으로 보면</b> — 이차함수의 꼭짓점, 미분(접선의 기울기)</p>
 <p class="saywords"><b>말로 먼저</b> — 공을 얼마나 세게 던질지(A)만 바꿔 가며 점수를 계산합니다. 점수가 가장 낮은 세기에서 중력 가속도 9.8이 저절로 나옵니다.</p>
+<p><b>학교 수학으로 보면</b> — 이차함수의 꼭짓점, 미분(접선의 기울기)</p>
+<div class="try"><b>숫자로 한 번 해 보기</b><ol class="steps"><li>점수가 멈추는 곳: A = g/2 = 4.9</li><li>이때 가장 높은 곳(0.5초) = 4.9 × 0.25 ≈ 1.23m</li><li>길 x = 4.9·t(1 − t)의 가속도 = −9.8 → 뉴턴 법칙과 같습니다.</li><li>A = 4.9를 넣어 보기: (4.9² − 9.8 × 4.9) ÷ 6 = (24.01 − 48.02) ÷ 6 ≈ −4.0</li></ol></div>
+<details class="formula"><summary>식으로 보면 (몰라도 됩니다) — 식 조각 4개와 기호 읽기</summary>
 <table><thead><tr><th>식 조각</th><th>뜻</th></tr></thead><tbody><tr><td class='m'>L = ½·v² − g·x</td><td>질량 1kg 공의 점수. x는 높이</td></tr><tr><td class='m'>x = A·t(1 − t)</td><td>0초·1초에 손 높이(0)인 길들. A가 클수록 높이 던짐</td></tr><tr><td class='m'>작용 = A²/6 − g·A/6</td><td>길 A의 점수</td></tr><tr><td class='m'>d/dt(∂L/∂v) = ∂L/∂x</td><td>오일러–라그랑주 식 → 가속도 = −g</td></tr></tbody></table>
-<div class="symread"><b>기호 읽기</b><span><b>∂</b> 라운드 디(편미분) — 다른 것은 그대로 두고 하나만 살짝 바꿨을 때 변하는 비율</span></div>
-<div class="try"><b>숫자로 한 번 해 보기</b><div>점수가 멈추는 곳: A = g/2 = 4.9</div><div>이때 가장 높은 곳(0.5초) = 4.9 × 0.25 ≈ 1.23m</div><div>길 x = 4.9·t(1 − t)의 가속도 = −9.8 → 뉴턴 법칙과 같습니다.</div><div>A = 4.9를 넣어 보기: (4.9² − 9.8 × 4.9) ÷ 6 = (24.01 − 48.02) ÷ 6 ≈ −4.0</div></div>
+<div class="symread"><b>기호 읽기</b><span><b>∂</b> 라운드 디(편미분) — 다른 것은 그대로 두고 하나만 살짝 바꿨을 때 변하는 비율</span></div></details>
 <div class="q"><img src="assets/chars/haru_e16.webp" alt="조수 하루" width="96" height="96" loading="lazy"><div><b>조수</b> 법칙을 외우지 않아도, 점수를 가장 작게 하는 길이 법칙대로 움직이네요!</div></div></div>
 </div>
 <div class="pair"><div class="box"><h4>일상으로 치면</h4><p>같은 시간 동안 공중에 머물 공은 딱 한 높이로만 던질 수 있습니다.</p></div><div class="box ml"><h4>AI에서는</h4><p>&quot;규칙(손실)만 정하고 가장 좋은 답은 계산에 맡긴다&quot;는 생각이 머신러닝과 같습니다. 법칙을 직접 짜지 않고 점수를 정합니다.</p></div></div>
@@ -95,7 +98,7 @@
 <div class="talk"><div class="line"><img src="assets/chars/doctor_e07.webp" alt="박사" width="96" height="96" loading="lazy"><div class="bub"><b style="color:var(--c-doc)">박사</b>물리 법칙을 외우지 않아도 됩니다. 점수표 하나에서 법칙이 나오는 걸 보기만 하세요. 공을 던져 1초 뒤에 받는다. 높이를 정하는 건 너희 손이 아니라 점수 규칙이다.</div></div><div class="line"><img src="assets/chars/jupanbot_e16.webp" alt="주판봇" width="96" height="96" loading="lazy"><div class="bub"><b style="color:var(--c-robo)">주판봇</b>높이 던질수록 점수가 커지겠죠! 낮게 던지면 끝!</div></div><div class="line"><img src="assets/chars/fruitfly_e09.webp" alt="초파리 연구원" width="96" height="96" loading="lazy"><div class="bub"><b style="color:var(--c-fly)">초파리 연구원</b>던지는 세기 A를 움직여 봐. 점수가 가장 낮은 곳은 0이 아닐걸.</div></div></div>
 <div class="panel"><div class="ph"><b>실험 패널 3</b><small>던지는 세기 A를 바꿔 보세요 · 1초 뒤 같은 손에 받기</small></div><div id="pp-p03" data-panel="p03"></div><div class="ctrl"><label>던지는 세기 A <input type="range" min="0" max="10" step="0.1" value="2" aria-label="던지는 세기"></label></div><div class="readout" aria-live="polite"></div></div>
 <div class="solve"><h4>풀이</h4><p>점수는 A = 4.9에서 가장 낮습니다. 0(안 던짐)도, 10(세게)도 아닙니다.</p><p>그 길의 가속도는 정확히 −9.8입니다. 점수 규칙 하나에서 &quot;중력 가속도 9.8&quot;이 나왔습니다.</p><p>오일러–라그랑주 식은 &quot;점수가 멈추는 길&quot;을 한 줄로 적은 것입니다(조수 상자).</p><p>여기서는 x = A·t(1 − t) 모양의 길만 비교하는 단순화를 했습니다. 모든 길을 비교해도 답(가속도 −9.8)은 같습니다.</p></div>
-
+<div class="box aicheck"><h4>AI 판단 코너 — 그대로 믿어도 될까?</h4><p><b>AI의 답</b> AI 비서가 &quot;공을 세게 던질수록 점수(작용)가 낮아지니, 세게 던지는 길이 자연스럽다&quot;고 답했습니다.</p><p><b>확인할 질문</b> 패널에서 던지는 세기 A를 10까지 올려 보세요. 점수가 계속 낮아지나요?</p><details><summary>확인 결과 보기</summary><p>아닙니다. A = 4.9에서 −4.0으로 가장 낮고, A = 10이면 +0.33으로 다시 올라갑니다. 점수가 멈추는 한 점이 답입니다.</p></details></div>
 <div class="limit"><b>이 방의 한계</b> — 이 방식은 길 전체를 한꺼번에 봅니다. 울타리(조건)가 붙은 문제에서는 어떻게 할까요? → 4번 방</div>
 
 <div class="quiz" data-ans="1" data-ok="A = g/2 = 4.9에서 점수가 멈추고, 가속도는 −9.8입니다." data-no="패널에서 빨간 점이 가장 낮은 곳을 찾아보세요."><div class="qq">확인 퀴즈 — 1초 뒤에 같은 손에 받으려면 점수가 가장 낮은 길은?</div><div class="opts"><button type="button">던지지 않는다(A = 0)</button><button type="button">A = 4.9로 던진다 — 가속도 −9.8</button><button type="button">최대한 세게 던진다</button></div><div class="fb" aria-live="polite"></div></div>
@@ -108,11 +111,12 @@
 <div class="box why"><h4>왜 이 방법을 쓰나</h4><ol><li><b>문제</b> — 원 둘레 위에서만 움직일 수 있을 때, x + y가 가장 큰 점을 찾고 싶습니다.</li><li><b>앞 방의 한계</b> — 3번 방처럼 그냥 가장 좋은 곳을 찾으면 울타리 밖으로 나가 버립니다.</li><li><b>해법</b> — 울타리 조건에 값(λ, 람다)을 붙여 점수표에 함께 넣습니다. 이것이 최적화의 라그랑지안입니다.</li></ol><div class="easy"><b>쉽게 말하면</b> — &quot;예산을 1만 원 넘기면 벌점 λ&quot;를 점수에 넣으면, 예산 안의 최선이 저절로 나옵니다.</div></div>
 <div class="box mathbox"><h4>수학 수식을 어려워하는 조수가 대신 물어봅니다</h4>
 <div class="q"><img src="assets/chars/haru_e04.webp" alt="조수 하루" width="96" height="96" loading="lazy"><div><b>조수</b> 물리의 라그랑지안이랑 최적화의 라그랑지안이 같은 사람 이름인데, 같은 거예요?</div></div>
-<p><b>학교 수학으로 보면</b> — 원의 방정식, 미분(기울기), 연립방정식</p>
 <p class="saywords"><b>말로 먼저</b> — 목표(x + y)를 키우되 울타리(원) 밖으로는 나갈 수 없습니다. 목표가 커지는 방향과 울타리 바깥 방향이 같은 쪽을 가리키는 곳이 답입니다.</p>
+<p><b>학교 수학으로 보면</b> — 원의 방정식, 미분(기울기), 연립방정식</p>
+<div class="try"><b>숫자로 한 번 해 보기</b><ol class="steps"><li>∇f = (1, 1), ∇g = (2x, 2y)</li><li>1 = λ·2x, 1 = λ·2y → x = y = 1/√2 ≈ 0.707</li><li>최댓값 x + y = √2 ≈ 1.414, λ = √2/2 ≈ 0.707</li></ol></div>
+<details class="formula"><summary>식으로 보면 (몰라도 됩니다) — 식 조각 4개와 기호 읽기</summary>
 <table><thead><tr><th>식 조각</th><th>뜻</th></tr></thead><tbody><tr><td class='m'>𝓛 = f − λ·g</td><td>목표 f에서 조건 g에 λ를 곱해 뺀 점수표</td></tr><tr><td class='m'>f = x + y</td><td>키우고 싶은 목표</td></tr><tr><td class='m'>g = x² + y² − 1 = 0</td><td>울타리: 반지름 1인 원 위</td></tr><tr><td class='m'>∇f = λ·∇g</td><td>최적점에서는 두 화살표가 한 줄로 선다</td></tr></tbody></table>
-<div class="symread"><b>기호 읽기</b><span><b>∇</b> 나블라 — 가장 가파른 오르막 화살표</span><span><b>λ</b> 람다 — 조건 하나의 값(그림자 가격)</span><span><b>√</b> 루트 — 제곱하면 그 수가 되는 수</span></div>
-<div class="try"><b>숫자로 한 번 해 보기</b><div>∇f = (1, 1), ∇g = (2x, 2y)</div><div>1 = λ·2x, 1 = λ·2y → x = y = 1/√2 ≈ 0.707</div><div>최댓값 x + y = √2 ≈ 1.414, λ = √2/2 ≈ 0.707</div></div>
+<div class="symread"><b>기호 읽기</b><span><b>∇</b> 나블라 — 가장 가파른 오르막 화살표</span><span><b>λ</b> 람다 — 조건 하나의 값(그림자 가격)</span><span><b>√</b> 루트 — 제곱하면 그 수가 되는 수</span></div></details>
 <div class="q"><img src="assets/chars/haru_e16.webp" alt="조수 하루" width="96" height="96" loading="lazy"><div><b>조수</b> 두 화살표가 나란해지는 곳이 답이고, λ는 그 길이의 비율이군요.</div></div></div>
 </div>
 <div class="pair"><div class="box"><h4>일상으로 치면</h4><p>장바구니를 채울 때 &quot;이 물건 하나 더 사면 만족이 얼마나 느나&quot;와 &quot;돈이 얼마나 드나&quot;가 맞아떨어지는 곳에서 멈춥니다.</p></div><div class="box ml"><h4>AI에서는</h4><p>SVM, 안전 강화학습, 언어모델 미세조정처럼 &quot;조건을 지키며 배우는&quot; 모델이 모두 이 방법을 씁니다. ③편에서 자세히 봅니다.</p></div></div>
@@ -123,7 +127,7 @@
 
 <div class="limit"><b>이 방의 한계</b> — 여기까지는 &quot;길 전체&quot; 또는 &quot;한 장면&quot;을 봤습니다. 지금 이 순간 어디로 가는지 화살표로 보는 다른 지도가 있습니다. → 5번 방</div>
 <details class="code"><summary>파이썬 코드로 보면 (몰라도 됩니다)</summary><pre><code>lam = 1 / (2 * x)   # x = y = 0.707일 때 0.707</code></pre><p>원자료 ③의 첫째 식(1 = λ·2x)을 λ에 대해 푼 것입니다.</p></details>
-<div class="quiz" data-ans="1" data-ok="최적점에서 ∇f = λ·∇g, 두 화살표가 나란합니다." data-no="패널에서 45°로 돌려 두 화살표를 보세요."><div class="qq">확인 퀴즈 — 원 위에서 x + y가 가장 큰 점에서 일어나는 일은?</div><div class="opts"><button type="button">∇f와 ∇g가 직각이 된다</button><button type="button">∇f와 ∇g가 한 줄(평행)로 선다</button><button type="button">∇f가 0이 된다</button></div><div class="fb" aria-live="polite"></div></div>
+<div class="quiz" data-ans="1" data-ok="최적점에서 ∇f = λ·∇g, 두 화살표가 나란합니다." data-no="패널에서 45°로 돌려 두 화살표를 보세요."><div class="qq">확인 퀴즈 — 원 위에서 x + y가 가장 큰 점에서 일어나는 일은?</div><div class="opts"><button type="button">목표 화살표(∇f)와 울타리 화살표(∇g)가 직각이 된다</button><button type="button">두 화살표가 한 줄(평행)로 선다</button><button type="button">목표 화살표가 0이 된다</button></div><div class="fb" aria-live="polite"></div></div>
 </div></section>
 <section><div class="wrap"><div class="next"><a href="00_orientation.html">← 0편</a><a href="02_hamiltonian.html">②편 합의 지도 — 해밀토니안 →</a></div></div></section><section id="kg"><div class="wrap"><h2>지식 색인 — 이 페이지에서 찾아보기</h2>
 <p class="muted">이 페이지에 나온 방과 개념을 모았습니다. 검색하고, "설명 보러 가기"로 본문에 돌아갑니다.</p><div id="kg-mount"></div></div></section>
@@ -132,7 +136,7 @@
 <script type="application/json" id="kg-raw">{"version": "1.3", "page": "01_lagrangian", "series": "두 장의 지도", "nodes": [{"id": "lab:room/r01", "type": "Concept", "label": {"ko": "두 가지 에너지 — 움직임과 높이", "en": "Kinetic and potential energy"}, "anchor": "#r01", "desc": "움직이는 힘(T)과 높이에 숨은 힘(V)", "page": "01_lagrangian", "source": "lab:work/lagrangian_hamiltonian_lab"}, {"id": "lab:room/r02", "type": "Concept", "label": {"ko": "길 전체에 점수 매기기 — 작용", "en": "Action (path score)"}, "anchor": "#r02", "desc": "출발과 도착이 같은 여러 길 중 자연이 고르는 길", "page": "01_lagrangian", "source": "lab:work/lagrangian_hamiltonian_lab"}, {"id": "lab:room/r03", "type": "Concept", "label": {"ko": "점수 규칙에서 뉴턴 법칙이 나온다", "en": "Euler–Lagrange equation and Newton's law"}, "anchor": "#r03", "desc": "위로 던진 공 — 점수가 멈추는 길 = 중력 가속도 9.8", "page": "01_lagrangian", "source": "lab:work/lagrangian_hamiltonian_lab"}, {"id": "lab:room/r04", "type": "Concept", "label": {"ko": "울타리가 있을 때 — 라그랑주 승수", "en": "Lagrange multipliers"}, "anchor": "#r04", "desc": "같은 이름, 같은 생각: 조건도 점수표에 넣는다", "page": "01_lagrangian", "source": "lab:work/lagrangian_hamiltonian_lab"}, {"id": "lab:concept/lagrangian", "type": "Concept", "label": {"ko": "라그랑지안(T − V)", "en": "Lagrangian"}, "anchor": "#r02", "desc": "길 전체에 점수를 매기는 지도", "page": "01_lagrangian", "source": "lab:work/lagrangian_hamiltonian_lab"}, {"id": "lab:concept/hamiltonian", "type": "Concept", "label": {"ko": "해밀토니안(T + V)", "en": "Hamiltonian"}, "anchor": "#r06", "desc": "지금 이 순간의 화살표를 보는 지도", "page": "02_hamiltonian", "source": "lab:work/lagrangian_hamiltonian_lab"}], "edges": [{"s": "lab:room/r01", "p": "motivates", "o": "lab:room/r02"}, {"s": "lab:room/r02", "p": "motivates", "o": "lab:room/r03"}, {"s": "lab:room/r03", "p": "motivates", "o": "lab:room/r04"}, {"s": "lab:concept/lagrangian", "p": "usedIn", "o": "lab:room/r02"}, {"s": "lab:concept/lagrangian", "p": "usedIn", "o": "lab:room/r03"}, {"s": "lab:concept/lagrangian", "p": "usedIn", "o": "lab:room/r04"}, {"s": "lab:concept/lagrangian", "p": "relatedTo", "o": "lab:concept/hamiltonian"}]}</script>
 <script type="application/ld+json" id="kg-ld">{"@context": {"@vocab": "urn:lab:", "skos": "http://www.w3.org/2004/02/skos/core#", "schema": "https://schema.org/"}, "@graph": [{"@id": "urn:lab:room/r01", "@type": "Concept", "skos:prefLabel": [{"@value": "두 가지 에너지 — 움직임과 높이", "@language": "ko"}, {"@value": "Kinetic and potential energy", "@language": "en"}], "skos:definition": "움직이는 힘(T)과 높이에 숨은 힘(V)", "schema:url": "https://adminmrobo.github.io/lagrangian_hamiltonian_lab/01_lagrangian.html#r01"}, {"@id": "urn:lab:room/r02", "@type": "Concept", "skos:prefLabel": [{"@value": "길 전체에 점수 매기기 — 작용", "@language": "ko"}, {"@value": "Action (path score)", "@language": "en"}], "skos:definition": "출발과 도착이 같은 여러 길 중 자연이 고르는 길", "schema:url": "https://adminmrobo.github.io/lagrangian_hamiltonian_lab/01_lagrangian.html#r02"}, {"@id": "urn:lab:room/r03", "@type": "Concept", "skos:prefLabel": [{"@value": "점수 규칙에서 뉴턴 법칙이 나온다", "@language": "ko"}, {"@value": "Euler–Lagrange equation and Newton's law", "@language": "en"}], "skos:definition": "위로 던진 공 — 점수가 멈추는 길 = 중력 가속도 9.8", "schema:url": "https://adminmrobo.github.io/lagrangian_hamiltonian_lab/01_lagrangian.html#r03"}, {"@id": "urn:lab:room/r04", "@type": "Concept", "skos:prefLabel": [{"@value": "울타리가 있을 때 — 라그랑주 승수", "@language": "ko"}, {"@value": "Lagrange multipliers", "@language": "en"}], "skos:definition": "같은 이름, 같은 생각: 조건도 점수표에 넣는다", "schema:url": "https://adminmrobo.github.io/lagrangian_hamiltonian_lab/01_lagrangian.html#r04"}, {"@id": "urn:lab:concept/lagrangian", "@type": "Concept", "skos:prefLabel": [{"@value": "라그랑지안(T − V)", "@language": "ko"}, {"@value": "Lagrangian", "@language": "en"}], "skos:definition": "길 전체에 점수를 매기는 지도", "schema:url": "https://adminmrobo.github.io/lagrangian_hamiltonian_lab/01_lagrangian.html#r02"}, {"@id": "urn:lab:concept/hamiltonian", "@type": "Concept", "skos:prefLabel": [{"@value": "해밀토니안(T + V)", "@language": "ko"}, {"@value": "Hamiltonian", "@language": "en"}], "skos:definition": "지금 이 순간의 화살표를 보는 지도", "schema:url": "https://adminmrobo.github.io/lagrangian_hamiltonian_lab/02_hamiltonian.html#r06"}]}</script>
 <script type="application/json" id="refs-csl">[{"id": "askwhyvalley_hamiltonian", "type": "graphic", "title": "The Hamiltonian Operator (infographic)", "author": [{"literal": "@askwhyvalley"}], "accessed": {"date-parts": [[2026, 11, 19]]}, "note": "사용자 제공 이미지. 다시 그려 실험 패널로 바꿈"}, {"id": "askwhyvalley_taylor", "type": "graphic", "title": "Taylor Series (infographic)", "author": [{"literal": "@askwhyvalley"}], "accessed": {"date-parts": [[2026, 11, 19]]}}, {"id": "matharium_lagrange", "type": "graphic", "title": "Lagrange Multipliers (infographic)", "author": [{"literal": "matharium"}], "accessed": {"date-parts": [[2026, 11, 19]]}}, {"id": "greydanus2019", "type": "paper-conference", "title": "Hamiltonian Neural Networks", "author": [{"family": "Greydanus"}, {"family": "Dzamba"}, {"family": "Yosinski"}], "issued": {"date-parts": [[2019]]}, "container-title": "NeurIPS"}, {"id": "cranmer2020", "type": "article", "title": "Lagrangian Neural Networks", "author": [{"family": "Cranmer"}], "issued": {"date-parts": [[2020]]}}, {"id": "chen2018", "type": "paper-conference", "title": "Neural Ordinary Differential Equations", "author": [{"family": "Chen"}], "issued": {"date-parts": [[2018]]}, "container-title": "NeurIPS"}, {"id": "su2014", "type": "paper-conference", "title": "A Differential Equation for Modeling Nesterov's Accelerated Gradient Method", "author": [{"family": "Su"}, {"family": "Boyd"}, {"family": "Candès"}], "issued": {"date-parts": [[2014]]}}, {"id": "ramsauer2020", "type": "article", "title": "Hopfield Networks is All You Need", "author": [{"family": "Ramsauer"}], "issued": {"date-parts": [[2020]]}}, {"id": "romer_am", "type": "book", "title": "Advanced Macroeconomics", "author": [{"family": "Romer", "given": "David"}], "publisher": "McGraw-Hill"}]</script>
-<script type="application/json" id="page-meta">{"title": "01_lagrangian", "series": "두 장의 지도", "creator": [{"name": "안상선", "role": "author", "affiliation": "(주)M-Robo"}], "date": "2026-11-19", "version": "v1.3", "license": "캐릭터·그림 무단 사용 금지"}</script>
+<script type="application/json" id="page-meta">{"title": "01_lagrangian", "series": "두 장의 지도", "creator": [{"name": "안상선", "role": "author", "affiliation": "(주)M-Robo"}], "date": "2026-11-19", "version": "v1.4", "license": "캐릭터·그림 무단 사용 금지"}</script>
 <footer><div class="wrap">
 <h3>출처</h3>
 <div class="tbl"><table><thead><tr><th>#</th><th>자료</th><th>이 페이지에서 쓴 곳</th></tr></thead><tbody>
@@ -147,7 +151,7 @@
 <h3>예시값·설명용 숫자</h3>
 <p>배달 로봇의 속도·위험, 답 A·B의 확률, SVM의 점 4개, 임금·이자·케이크·저축률 수치는 설명을 위해 만든 예시값입니다. 모든 "숫자로 한 번 해 보기"는 build/check_numbers.py로 검산했습니다.</p>
 <p>캐릭터 이름·설정·그림은 저작권자 안상선의 허락 없이 사용할 수 없습니다. 캐릭터 그림: fruitfly-lab-expressions.</p>
-<p>글 · 안상선 ((주)M-Robo 대표) · <a href="https://adminmrobo.github.io/who_am_i/who_am_i.html">저자 소개</a> · 2026-11-19 · v1.3</p>
+<p>글 · 안상선 ((주)M-Robo 대표) · <a href="https://adminmrobo.github.io/who_am_i/who_am_i.html">저자 소개</a> · 2026-11-19 · v1.4</p>
 <p><a href="index.html">목차</a> · <a href="00_orientation.html">0편</a> · <a href="01_lagrangian.html">①편</a> · <a href="02_hamiltonian.html">②편</a> · <a href="03_ai_lagrangian.html">③편</a> · <a href="04_ai_hamiltonian.html">④편</a> · <a href="05_economics.html">⑤편</a> · <a href="06_quantum.html">⑥편</a> · <a href="07_duel.html">⑦편</a> · <a href="https://github.com/adminmrobo/lagrangian_hamiltonian_lab">저장소</a></p>
 </div></footer>
 <script src="assets/panels.js"></script>
