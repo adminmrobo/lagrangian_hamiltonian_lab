@@ -87,7 +87,7 @@ for x,c,cl,head,body in [(30,TEAL,TEAL_L,'L = 움직임 에너지 − 높이 에
 # bridge
 o.append(f'<rect x="380" y="{y0+100}" width="320" height="44" rx="22" fill="{NAVY}"/>')
 t(540,y0+129,'⇄ 지도 바꿔 그리기: 속도 축 → 운동량 축',16,'#fff',600,'middle')
-t(540,y0+165,'운동량 = 무게 × 속도 (이 용수철은 무게 1이라 같은 숫자)',16,GRAY,400,'middle')
+t(540,y0+165,'운동량 = 질량 × 속도 (이 용수철은 질량 1이라 같은 숫자)',16,GRAY,400,'middle')
 
 # row 3 how it sees
 y1=785
@@ -137,4 +137,5 @@ for x,c,cl,head,items in [(30,TEAL,TEAL_L,'이럴 때 편하다',['울타리(예
 t(540,1296,'같은 이름의 가족: 최적화의 라그랑지안(목표 − λ×조건)도 "규칙을 한 점수표에 넣고 멈추는 점을 찾는다"',15,NAVY,500,'middle')
 t(540,1322,'안장은 L 값의 모양이고, 최소·멈춤은 길 전체 점수의 이야기 · 형식 참고 matharium · 글 안상선 ((주)M-Robo 대표)',13,GRAY,400,'middle')
 o.append('</g>')
-open('/home/claude/card/lagrangian_vs_hamiltonian_card.svg','w').write(f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}">'+''.join(o)+'</svg>')
+import os as _os
+open(_os.path.join(_os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))),'assets','fig','compare_card.svg'),'w').write(f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}">'+''.join(o)+'</svg>')

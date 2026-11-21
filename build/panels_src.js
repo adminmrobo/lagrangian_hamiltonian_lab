@@ -103,7 +103,7 @@ P.p05=function(h){var W=640,H=320,inp=inputs(h)[0],out=readout(h),v=2;
     var m2=box(s,{L:376,T:28,W:240,H:240},{x0:-1,x1:1,y0:0,y1:7,xt:[-1,0,1],yt:[0,2,4,6],xl:'위치',yl:'운동량'});
     dot(s,m2.X(0),m2.Y(p),'orange',9);ktxt(s,m2.X(0)+14,m2.Y(p)+5,'운동량 '+fmt(p),{size:13,fill:C.orange});ktxt(s,496,20,'②편 지도 (위치·운동량)',{size:13,anchor:'middle',fill:C.orange});
     arrow(s,300,150,360,150,'navy',2.5);ktxt(s,330,140,'바꿔 그리기',{size:11.5,anchor:'middle'});
-    out.innerHTML='무게 '+fmt(m)+'kg, 속도 2m/s → 운동량 p = '+fmt(m)+' × 2 = <b>'+fmt(p)+'</b> · 움직임 에너지 p²/(2m) = '+fmt(p*p)+'/'+fmt(2*m)+' = <b>'+fmt(p*p/(2*m))+'J</b>';}
+    out.innerHTML='질량 '+fmt(m)+'kg, 속도 2m/s → 운동량 p = '+fmt(m)+' × 2 = <b>'+fmt(p)+'</b> · 움직임 에너지 p²/(2m) = '+fmt(p*p)+'/'+fmt(2*m)+' = <b>'+fmt(p*p/(2*m))+'J</b>';}
   inp.addEventListener('input',draw);draw();};
 
 /* ===== 6번 방: 위상 공간의 그릇 ===== */
@@ -176,11 +176,11 @@ P.p09=function(h){var W=480,H=440,out=readout(h),mode;var PTS=[[1,1,-1,0.25],[0,
   function draw(){var s=svgOf(h,W,H),p=plane(s,{W:W,H:H,x0:-0.5,x1:5,y0:-0.5,y1:5,equal:true,label:1});
     function line(c,col,da,w){var a=[c+0.5,-0.5],b=[-0.5,c+0.5];if(c+0.5>5){a=[5,c-5];b=[c-5,5];}el('line',{x1:p.X(a[0]),y1:p.Y(a[1]),x2:p.X(b[0]),y2:p.Y(b[1]),stroke:C[col]||col,'stroke-width':w,'stroke-dasharray':da||null},s);}
     if(mode==='wall'){line(2,'#8a96a3','6 4',2);line(6,'#8a96a3','6 4',2);}
-    line(4,'navy',null,3);ktxt(s,p.X(4.4),p.Y(0.1),'칸막이 x + y = 4',{size:12.5,anchor:'end'});
+    line(4,'navy',null,3);ktxt(s,p.X(4.4),p.Y(0.1),'가름판 x + y = 4',{size:12.5,anchor:'end'});
     PTS.forEach(function(q){dot(s,p.X(q[0]),p.Y(q[1]),q[2]>0?'blue':'red',8);
       if(mode==='lam')ktxt(s,p.X(q[0])+12,p.Y(q[1])-10,'λ = '+fmt(q[3]),{size:13.5,weight:'bold',fill:q[3]>0?C.orange:C.muted});});
     if(mode==='wall'){dash(s,p.X(1),p.Y(1),p.X(3),p.Y(3),C.orange);ktxt(s,p.X(2)-8,p.Y(2)-10,'복도 폭 2.83',{size:12.5,anchor:'end',fill:C.orange});}
-    out.innerHTML=mode==='lam'?'λ가 0이 아닌 점: <b>(1, 1)·(3, 3) 두 개</b>(λ = 0.25). (0, 1)·(4, 4)는 λ = 0 — 칸막이에 영향이 없습니다.':'회색 점선 = 복도의 두 벽(x + y = 2, x + y = 6). 버팀 점 (1, 1)·(3, 3)이 벽에 닿아 있고, 복도 폭은 <b>2/‖w‖ ≈ 2.83</b>입니다.';}
+    out.innerHTML=mode==='lam'?'λ가 0이 아닌 점: <b>(1, 1)·(3, 3) 두 개</b>(λ = 0.25). (0, 1)·(4, 4)는 λ = 0 — 가름판에 영향이 없습니다.':'회색 점선 = 복도의 두 벽(x + y = 2, x + y = 6). 버팀 점 (1, 1)·(3, 3)이 벽에 닿아 있고, 복도 폭은 <b>2/‖w‖ ≈ 2.83</b>입니다.';}
   mode=toggles(h,function(v){mode=v;draw();});draw();};
 
 /* ===== 10번 방: 안전 강화학습 ===== */

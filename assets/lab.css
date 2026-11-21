@@ -193,3 +193,17 @@ footer table{font-size:13.5px}
 .seealso b{color:var(--teal);margin-right:4px}
 .panel svg{max-width:680px;margin:0 auto}
 .fig.scene{max-width:760px}
+
+/* v1.3 ai-lab-extend: 말로 먼저·기호 읽기·AI 판단 코너·여백 */
+body{line-height:1.8}
+.room .box{padding:20px 22px}
+.saywords{background:var(--paper,#f6f8fa);border-left:4px solid var(--teal);padding:10px 14px;border-radius:8px;margin:10px 0}
+.symread{display:flex;flex-wrap:wrap;gap:6px 10px;font-size:13.5px;margin-top:10px;color:var(--ink)}
+.symread>b{width:100%;color:var(--teal)}
+.symread span{background:#fff;border:1px solid var(--rule);border-radius:999px;padding:3px 10px}
+.symread span b{color:var(--orange);margin-right:4px}
+.aicheck{border:2px dashed var(--orange);background:#fffaf5;margin:18px 0}
+.aicheck h4{color:var(--orange)}
+.aicheck p{margin:6px 0}
+.aicheck details summary{cursor:pointer;color:var(--teal);font-weight:700}
+.talk{gap:14px}

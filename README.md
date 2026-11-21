@@ -36,7 +36,7 @@ assets/img/           젠스파크 표지·장면 그림 자리 (docs/IMAGE_PROM
 assets/chars/         캐릭터 표정 WebP (fruitfly-lab-expressions)
 assets/og/            공유 미리보기 1200×630
 build/                문구(content_a·b·c.py) → 페이지(build.py), 패널(panels_src.js), 검산(check_numbers.py), og(make_og.py)
-docs/                 그림 요청 목록, 공간 좌표 해설 제작 지침서
+docs/                 그림 요청 목록 (제작 지침은 프로젝트 문서 SPACE_COORDINATE_GUIDE v1.2)
 ```
 
 다시 만들기: `python3 build/make_og.py && python3 build/build.py` · 검산: `python3 build/check_numbers.py`

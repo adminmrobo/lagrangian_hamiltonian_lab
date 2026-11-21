@@ -97,3 +97,9 @@ assert ok(ex(1,1), 2) and ok(ex(1,2), 2.5) and ok(ex(1,3), 2.667, 1e-3) and ok(E
 # 방 17 인구 증가 0.02 + 닳는 비율 0.08 = 0.1, 수정 황금률 기울기 = 할인율 0.04 + 0.08
 assert ok(0.02+0.08, 0.1) and ok(0.04+0.08, 0.12)
 print("extra ok")
+# v1.3 손계산 보충
+from math import log as LN
+assert ok((4.9**2 - 9.8*4.9)/6, -4.0) and ok(4.9**2, 24.01) and ok(9.8*4.9, 48.02)
+pA = exp(1)/(exp(1)+1)
+assert ok(pA*LN(pA/.5), 0.28) and ok((1-pA)*LN((1-pA)/.5), -0.17) and ok(pA*LN(pA/.5)+(1-pA)*LN((1-pA)/.5), 0.11)
+print("v1.3 ok")

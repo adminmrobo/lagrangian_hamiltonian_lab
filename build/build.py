@@ -5,9 +5,10 @@ sys.path.insert(0, os.path.dirname(__file__))
 from content_a import ROOMS_A, ROOMS_B
 from content_b import ROOMS_C, ROOMS_D, ML_ATLAS, ML_3D, NN_ATLAS0, NN_ATLAS1, NN_ATLAS2, NN_3D, BACKPROP
 from content_c import ROOMS_E, ROOMS_F, ROOMS_G
+from easy_extra import SAY, DOC, AI, SYM
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-VER = "v1.2"
+VER = "v1.3"
 DATE = "2026-11-19"
 SITE = "https://adminmrobo.github.io/lagrangian_hamiltonian_lab/"
 REPO = "https://github.com/adminmrobo/lagrangian_hamiltonian_lab"
@@ -93,13 +94,14 @@ ABBR = [("라그랑지안 L", "움직임 에너지 − 높이 에너지(T − V)
         ("해밀토니안 H", "움직임 에너지 + 높이 에너지(T + V)"),
         ("작용 S", "길 위의 L을 모두 더한 점수"),
         ("λ(람다), 라그랑주 승수", "조건 하나의 값(그림자 가격)"),
-        ("운동량 p", "무게 × 속도"),
+        ("운동량 p", "질량 × 속도 (질량 = 물체가 가진 양, kg)"),
         ("위상 공간", "위치·운동량 두 축으로 된 지도"),
         ("르장드르 변환", "속도 축을 운동량 축으로 바꿔 그리는 식(H = p·v − L)"),
         ("공동상태변수 μ·q", "시간 위의 그림자 가격"),
         ("SVM·RLHF·HMC", "서포트 벡터 머신 · 사람 피드백 강화학습 · 해밀토니안 몬테카를로"),
         ("HNN·LNN", "해밀토니안 신경망 · 라그랑지안 신경망"),
-        ("KL", "두 확률이 다른 정도. 거리처럼 쓰지만 방향이 있어 대칭은 아님")]
+        ("KL", "두 확률이 다른 정도. 거리처럼 쓰지만 방향이 있어 대칭은 아님"),
+        ("기호 읽기", "각 방의 조수 상자 아래 「기호 읽기」에 그 방에 나온 기호의 읽는 법과 뜻이 있습니다. 예: ∂ 라운드 디(편미분), ∫ 인티그럴(모두 더하기), ∇ 나블라(오르막 화살표), λ 람다(그림자 가격)")]
 
 def head(title, desc, og, path):
     return f"""<!DOCTYPE html>
@@ -188,6 +190,20 @@ def room(r):
         links = '<div class="seealso"><b>이어서 보기</b> ' + " · ".join(f'<a href="{h}">{E(t)}</a>' for h, t in r["links"]) + "</div>"
     p = r["panel"]
     fig = compare_fig() if r["id"] == "r08b" else ""
+    say = f'<p class="saywords"><b>말로 먼저</b> — {E(SAY[r["id"]])}</p>' if r["id"] in SAY else ""
+    blob = " ".join(a + " " + b for a, b in r["pieces"]) + " " + " ".join(r["tries"])
+    syms = [f"<span><b>{E(k)}</b> {E(v)}</span>" for k, v in SYM if k in blob]
+    symread = f'<div class="symread"><b>기호 읽기</b>{"".join(syms)}</div>' if syms else ""
+    tl = list(r["talk"])
+    if r["id"] in DOC:
+        if tl and tl[0][0] == "doctor":
+            tl[0] = ("doctor", tl[0][1], DOC[r["id"]] + " " + tl[0][2])
+        else:
+            tl.insert(0, ("doctor", "e08", DOC[r["id"]]))
+    aibox = ""
+    if r["id"] in AI:
+        a1, a2, a3 = AI[r["id"]]
+        aibox = f'<div class="box aicheck"><h4>AI 판단 코너 — 그대로 믿어도 될까?</h4><p><b>AI의 답</b> {E(a1)}</p><p><b>확인할 질문</b> {E(a2)}</p><details><summary>확인 결과 보기</summary><p>{E(a3)}</p></details></div>' 
     q = r["quiz"]
     return f"""<section class="room" id="{r['id']}"><div class="wrap">
 <div class="roomno">{r['no']}번 방</div>
@@ -198,15 +214,18 @@ def room(r):
 <div class="box mathbox"><h4>수학 수식을 어려워하는 조수가 대신 물어봅니다</h4>
 <div class="q">{face('haru','e04')}<div><b>조수</b> {E(r['haru_q'])}</div></div>
 <p><b>학교 수학으로 보면</b> — {E(r['school'])}</p>
+{say}
 <table><thead><tr><th>식 조각</th><th>뜻</th></tr></thead><tbody>{pcs}</tbody></table>
+{symread}
 <div class="try"><b>숫자로 한 번 해 보기</b>{tries}</div>
 <div class="q">{face('haru','e16')}<div><b>조수</b> {E(r['haru_c'])}</div></div></div>
 </div>
 <div class="pair"><div class="box"><h4>일상으로 치면</h4><p>{E(r['daily'])}</p></div><div class="box ml"><h4>AI에서는</h4><p>{E(r['ml'])}</p>{links}</div></div>
 {fig}
-{talk(r['talk'])}
+{talk(tl)}
 {panel_html(p['key'], f"실험 패널 {r['no']}", p['note'], p['ctrl'])}
 <div class="solve"><h4>풀이</h4>{solve}</div>
+{aibox}
 <div class="limit"><b>이 방의 한계</b> — {E(r['limit'])}</div>
 {code}
 {quiz(q[0], q[1], q[2], q[3], q[4])}
