@@ -1,0 +1,126 @@
+{
+ "version": "1.0",
+ "made": "2026-11-24",
+ "via": "rehang-2026-11-24",
+ "domains": [
+  "math",
+  "econ"
+ ],
+ "note": "분야 뼈대 주제에 다시 걸기(ai-lab-retrofit 15장). links는 자동 후보이며 틀린 줄은 지우면 된다. 빌드 스크립트가 있는 저장소는 빌드 끝에 rehang.apply_overlay()가 이 파일을 적용한다.",
+ "topics": {
+  "lab:topic/euler-lagrange": {
+   "ko": "오일러-라그랑주 방정식",
+   "en": "Euler–Lagrange equation",
+   "domain": [
+    "math"
+   ],
+   "level": 4
+  },
+  "lab:topic/hamiltonian": {
+   "ko": "해밀토니안",
+   "en": "Hamiltonian formulation",
+   "domain": [
+    "math"
+   ],
+   "level": 4
+  },
+  "lab:topic/lagrange-multipliers": {
+   "ko": "라그랑주 승수",
+   "en": "Lagrange multipliers",
+   "domain": [
+    "math"
+   ],
+   "level": 2
+  },
+  "lab:topic/lagrangian-mechanics": {
+   "ko": "라그랑지안",
+   "en": "Lagrangian formulation",
+   "domain": [
+    "math"
+   ],
+   "level": 4
+  },
+  "lab:topic/taylor-approximation": {
+   "ko": "테일러 근사",
+   "en": "Taylor approximation",
+   "domain": [
+    "math"
+   ],
+   "level": 2
+  }
+ },
+ "links": {
+  "lab:concept/hamiltonian": {
+   "topic": "lab:topic/hamiltonian",
+   "score": 3,
+   "why": "이름 같음",
+   "ko": "해밀토니안(T + V)"
+  },
+  "lab:concept/lagrangian": {
+   "topic": "lab:topic/lagrangian-mechanics",
+   "score": 3,
+   "why": "이름 같음",
+   "ko": "라그랑지안(T − V)"
+  },
+  "lab:room/r01": {
+   "topic": "lab:topic/lagrangian-mechanics",
+   "score": 3,
+   "why": "사람이 고름",
+   "ko": "두 가지 에너지 — 움직임과 높이"
+  },
+  "lab:room/r02": {
+   "topic": "lab:topic/euler-lagrange",
+   "score": 3,
+   "why": "사람이 고름",
+   "ko": "길 전체에 점수 매기기 — 작용"
+  },
+  "lab:room/r03": {
+   "topic": "lab:topic/euler-lagrange",
+   "score": 2,
+   "why": "영어 이름 낱말이 모두 겹침",
+   "ko": "점수 규칙에서 뉴턴 법칙이 나온다"
+  },
+  "lab:room/r04": {
+   "topic": "lab:topic/lagrange-multipliers",
+   "score": 3,
+   "why": "이름 같음",
+   "ko": "울타리가 있을 때 — 라그랑주 승수"
+  },
+  "lab:room/r05": {
+   "topic": "lab:topic/hamiltonian",
+   "score": 3,
+   "why": "사람이 고름",
+   "ko": "속도 축을 운동량 축으로 — 지도 바꿔 그리기"
+  },
+  "lab:room/r06": {
+   "topic": "lab:topic/hamiltonian",
+   "score": 3,
+   "why": "사람이 고름",
+   "ko": "위상 공간의 그릇"
+  },
+  "lab:room/r07": {
+   "topic": "lab:topic/hamiltonian",
+   "score": 3,
+   "why": "사람이 고름",
+   "ko": "그릇을 도는 화살표 — 해밀턴 식"
+  },
+  "lab:room/r08": {
+   "topic": "lab:topic/taylor-approximation",
+   "score": 3,
+   "why": "사람이 고름",
+   "ko": "테일러로 보면 모든 바닥은 용수철"
+  },
+  "lab:room/r19": {
+   "topic": "lab:topic/hamiltonian",
+   "score": 2,
+   "why": "주제 이름이 개념 이름에 들어 있음",
+   "ko": "연산자가 된 해밀토니안"
+  }
+ },
+ "retag": {
+  "from": [],
+  "to": [
+   "math"
+  ]
+ }
+}
